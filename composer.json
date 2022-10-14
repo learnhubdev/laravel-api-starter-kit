@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "App/Infrastructure/Framework/Tests/"
+            "Tests\\": "App/Infrastructure/Laravel/Tests/"
         }
     },
     "scripts": {

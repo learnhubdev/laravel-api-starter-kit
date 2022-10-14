@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists($maintenance = __DIR__.'/../App/Infrastructure/Framework/Storage/framework/maintenance.php')) {
+if (file_exists($maintenance = __DIR__.'/../App/Infrastructure/Laravel/Storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -44,7 +44,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../App/Infrastructure/Framework/Bootstrap/app.php';
+$app = require_once __DIR__.'/../App/Infrastructure/Laravel/Bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
