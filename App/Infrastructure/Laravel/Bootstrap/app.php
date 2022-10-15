@@ -20,7 +20,7 @@ use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
 use Illuminate\Foundation\Application;
 
 $app = new Application(
-    basePath: $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+    basePath: $_ENV['APP_BASE_PATH'] ?? dirname(path: __DIR__)
 );
 
 /*
