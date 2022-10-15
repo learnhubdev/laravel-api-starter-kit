@@ -15,7 +15,6 @@ class LaravelServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->basePath(path: 'App');
         $this->app->configPath(path: 'App/Infrastructure/Laravel/Config');
         $this->app->storagePath(path: 'App/Infrastructure/Laravel/Storage');
         $this->app->bootstrapPath(path: 'App/Infrastructure/Laravel/Bootstrap');
