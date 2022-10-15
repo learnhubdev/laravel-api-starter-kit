@@ -4,17 +4,12 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Laravel\Providers;
 
+use App\Infrastructure\Laravel\Models\User;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class AuthServiceProvider extends ServiceProvider
+class RelationServiceProvider extends ServiceProvider
 {
-    /**
-     * The model to policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
-     */
-    protected $policies = [];
-
     /**
      * Register any authentication / authorization services.
      *
@@ -22,6 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Relation::enforceMorphMap([
+            'user' => User::class,
+        ]);
     }
 }

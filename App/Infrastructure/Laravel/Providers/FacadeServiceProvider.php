@@ -5,16 +5,10 @@ declare(strict_types=1);
 namespace App\Infrastructure\Laravel\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Facade;
 
-class AuthServiceProvider extends ServiceProvider
+class FacadeServiceProvider extends ServiceProvider
 {
-    /**
-     * The model to policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
-     */
-    protected $policies = [];
-
     /**
      * Register any authentication / authorization services.
      *
@@ -22,6 +16,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Facade::defaultAliases()->collect();
     }
 }
