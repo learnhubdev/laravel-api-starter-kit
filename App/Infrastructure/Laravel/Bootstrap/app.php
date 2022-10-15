@@ -13,14 +13,14 @@
 
 use App\Infrastructure\Laravel\Console\Kernel as ConsoleKernel;
 use App\Infrastructure\Laravel\Exceptions\Handler;
+use App\Infrastructure\Laravel\Foundation\Application;
 use App\Infrastructure\Laravel\Http\Kernel as HttpKernel;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
-use Illuminate\Foundation\Application;
 
 $app = new Application(
-    basePath: $_ENV['APP_BASE_PATH'] ?? dirname(path: __DIR__)
+    basePath: dirname(path: __DIR__, levels: 4)
 );
 
 /*

@@ -213,7 +213,6 @@ return [
         /*
          * Application Service Providers...
          */
-        LaravelServiceProvider::class,
         AuthServiceProvider::class,
         //BroadcastServiceProvider::class,
         EventServiceProvider::class,
