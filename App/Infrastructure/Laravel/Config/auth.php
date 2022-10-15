@@ -1,5 +1,7 @@
 <?php
 
+use App\Infrastructure\Laravel\Models\User;
+
 return [
 
     /*
@@ -62,7 +64,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \App\Infrastructure\Laravel\Models\User::class,
+            'model' => User::class,
         ],
 
         // 'users' => [

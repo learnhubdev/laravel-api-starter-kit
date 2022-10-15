@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' => env(key: 'BROADCAST_DRIVER', default: 'null'),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,15 +32,15 @@ return [
 
         'pusher' => [
             'driver' => 'pusher',
-            'key' => env('PUSHER_APP_KEY'),
-            'secret' => env('PUSHER_APP_SECRET'),
-            'app_id' => env('PUSHER_APP_ID'),
+            'key' => env(key: 'PUSHER_APP_KEY'),
+            'secret' => env(key: 'PUSHER_APP_SECRET'),
+            'app_id' => env(key: 'PUSHER_APP_ID'),
             'options' => [
-                'host' => env('PUSHER_HOST', 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-                'port' => env('PUSHER_PORT', 443),
-                'scheme' => env('PUSHER_SCHEME', 'https'),
+                'host' => env(key: 'PUSHER_HOST', default: 'api-'.env(key: 'PUSHER_APP_CLUSTER', default: 'mt1').'.pusher.com') ?: 'api-'.env(key: 'PUSHER_APP_CLUSTER', default: 'mt1').'.pusher.com',
+                'port' => env(key: 'PUSHER_PORT', default: 443),
+                'scheme' => env(key: 'PUSHER_SCHEME', default: 'https'),
                 'encrypted' => true,
-                'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
+                'useTLS' => env(key: 'PUSHER_SCHEME', default: 'https') === 'https',
             ],
             'client_options' => [
                 // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
@@ -49,7 +49,7 @@ return [
 
         'ably' => [
             'driver' => 'ably',
-            'key' => env('ABLY_KEY'),
+            'key' => env(key: 'ABLY_KEY'),
         ],
 
         'redis' => [

@@ -1,12 +1,15 @@
 <?php
 
-namespace Database\Factories;
+declare(strict_types=1);
 
+namespace App\Infrastructure\Laravel\Database\Factories;
+
+use App\Infrastructure\Laravel\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Infrastructure\Laravel\Models\User>
+ * @extends Factory<User>
  */
 class UserFactory extends Factory
 {
@@ -15,7 +18,7 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => fake()->name(),

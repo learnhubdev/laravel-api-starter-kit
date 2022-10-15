@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infrastructure\Laravel\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -27,8 +29,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function configureRateLimiting(): void
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        RateLimiter::for(name: 'api', callback: function (Request $request) {
+            return Limit::perMinute(maxAttempts: 60)->by(key: $request->user()?->id ?: $request->ip());
         });
     }
 }

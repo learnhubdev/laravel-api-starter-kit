@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'editor' => env('IGNITION_EDITOR', 'phpstorm'),
+    'editor' => env(key: 'IGNITION_EDITOR', default: 'phpstorm'),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ return [
     |
     */
 
-    'theme' => env('IGNITION_THEME', 'auto'),
+    'theme' => env(key: 'IGNITION_THEME', default: 'auto'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ return [
     |
     */
 
-    'enable_share_button' => env('IGNITION_SHARING_ENABLED', true),
+    'enable_share_button' => env(key: 'IGNITION_SHARING_ENABLED', default: true),
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ return [
     |
     */
 
-    'register_commands' => env('REGISTER_IGNITION_COMMANDS', false),
+    'register_commands' => env(key: 'REGISTER_IGNITION_COMMANDS', default: false),
 
     /*
     |--------------------------------------------------------------------------
@@ -142,11 +142,11 @@ return [
     | can override this behaviour and enable or disable runnable solutions
     | regardless of the application's environment.
     |
-    | Default: env('IGNITION_ENABLE_RUNNABLE_SOLUTIONS')
+    | Default: env(key: 'IGNITION_ENABLE_RUNNABLE_SOLUTIONS')
     |
     */
 
-    'enable_runnable_solutions' => env('IGNITION_ENABLE_RUNNABLE_SOLUTIONS'),
+    'enable_runnable_solutions' => env(key: 'IGNITION_ENABLE_RUNNABLE_SOLUTIONS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,8 +171,8 @@ return [
     |
     */
 
-    'remote_sites_path' => env('IGNITION_REMOTE_SITES_PATH', base_path()),
-    'local_sites_path' => env('IGNITION_LOCAL_SITES_PATH', ''),
+    'remote_sites_path' => env(key: 'IGNITION_REMOTE_SITES_PATH', default: base_path()),
+    'local_sites_path' => env(key: 'IGNITION_LOCAL_SITES_PATH', default: ''),
 
     /*
     |--------------------------------------------------------------------------

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env(key: 'MAIL_MAILER', default: 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,13 +36,13 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env(key: 'MAIL_HOST', default: 'smtp.mailgun.org'),
+            'port' => env(key: 'MAIL_PORT', default: 587),
+            'encryption' => env(key: 'MAIL_ENCRYPTION', default: 'tls'),
+            'username' => env(key: 'MAIL_USERNAME'),
+            'password' => env(key: 'MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'local_domain' => env(key: 'MAIL_EHLO_DOMAIN'),
         ],
 
         'ses' => [
@@ -59,12 +59,12 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+            'path' => env(key: 'MAIL_SENDMAIL_PATH', default: '/usr/sbin/sendmail -bs -i'),
         ],
 
         'log' => [
             'transport' => 'log',
-            'channel' => env('MAIL_LOG_CHANNEL'),
+            'channel' => env(key: 'MAIL_LOG_CHANNEL'),
         ],
 
         'array' => [
@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env(key: 'MAIL_FROM_ADDRESS', default: 'hello@example.com'),
+        'name' => env(key: 'MAIL_FROM_NAME', default: 'Example'),
     ],
 
     /*
@@ -111,7 +111,7 @@ return [
         'theme' => 'default',
 
         'paths' => [
-            resource_path('views/vendor/mail'),
+            resource_path(path: 'Views/Vendor/Mail'),
         ],
     ],
 
