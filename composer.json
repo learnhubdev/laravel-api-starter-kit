@@ -1,6 +1,7 @@
 {
     "name": "learnhubdev/laravel-api-starter-kit",
     "type": "project",
+    "version": "0.1.0",
     "description": "A Laravel API Starter Kit for long-term projects",
     "keywords": ["framework", "laravel", "starter kit"],
     "license": "MIT",
