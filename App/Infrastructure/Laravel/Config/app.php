@@ -2,7 +2,6 @@
 
 use App\Infrastructure\Laravel\Providers\AuthServiceProvider;
 use App\Infrastructure\Laravel\Providers\EventServiceProvider;
-use App\Infrastructure\Laravel\Providers\LaravelServiceProvider;
 use App\Infrastructure\Laravel\Providers\RouteServiceProvider;
 use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 use Illuminate\Broadcasting\BroadcastServiceProvider;

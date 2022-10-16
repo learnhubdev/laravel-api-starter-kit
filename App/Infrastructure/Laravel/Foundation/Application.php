@@ -1,36 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infrastructure\Laravel\Foundation;
 
-use Closure;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Foundation\Application as ApplicationContract;
-use Illuminate\Contracts\Foundation\CachesConfiguration;
-use Illuminate\Contracts\Foundation\CachesRoutes;
-use Illuminate\Contracts\Foundation\MaintenanceMode as MaintenanceModeContract;
-use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
-use Illuminate\Events\EventServiceProvider;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application as IlluminateApplication;
-use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Illuminate\Foundation\Events\LocaleUpdated;
-use Illuminate\Foundation\Mix;
-use Illuminate\Foundation\PackageManifest;
-use Illuminate\Http\Request;
-use Illuminate\Log\LogServiceProvider;
-use Illuminate\Routing\RoutingServiceProvider;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Env;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Macroable;
-use RuntimeException;
-use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class Application extends IlluminateApplication
 {
@@ -54,15 +29,17 @@ class Application extends IlluminateApplication
      */
     protected function bindPathsInContainer(): void
     {
-        $this->instance('path', $this->path());
-        $this->instance('path.base', $this->basePath());
-        $this->instance('path.config', $this->configPath(path: 'App/Infrastructure/Laravel/Config'));
-        $this->instance('path.public', $this->publicPath());
-        $this->instance('path.storage', $this->storagePath(path: 'App/Infrastructure/Laravel/Storage'));
-        $this->instance('path.database', $this->databasePath(path: 'App/Infrastructure/Laravel/Database'));
-        $this->instance('path.resources', $this->resourcePath(path: 'App/Infrastructure/Laravel/Resources'));
-        $this->instance('path.bootstrap', $this->bootstrapPath(path: 'App/Infrastructure/Laravel/Bootstrap'));
-        $this->useStoragePath(path: dirname(path: __DIR__) . '/Storage');
+        $this->instance(abstract: 'path', instance: $this->path('App/Infrastructure/Laravel/'));
+        $this->instance(abstract: 'path.base', instance: $this->basePath());
+        $this->instance(abstract: 'path.config', instance: $this->configPath(path: 'App/Infrastructure/Laravel/Config'));
+        $this->instance(abstract: 'path.public', instance: $this->publicPath());
+        $this->instance(abstract: 'path.storage', instance: $this->storagePath(path: 'App/Infrastructure/Laravel/Storage'));
+        $this->instance(abstract: 'path.database', instance: $this->databasePath(path: 'App/Infrastructure/Laravel/Database'));
+        $this->instance(abstract: 'path.resources', instance: $this->resourcePath(path: 'App/Infrastructure/Laravel/Resources'));
+        $this->instance(abstract: 'path.bootstrap', instance: $this->bootstrapPath(path: 'App/Infrastructure/Laravel/Bootstrap'));
+
+        $this->useAppPath(path: dirname(path: __DIR__));
+        $this->useStoragePath(path: dirname(path: __DIR__).'/Storage');
         $this->useLangPath(path: value(value: function () {
             if (is_dir(filename: $directory = $this->resourcePath(path: 'Language'))) {
                 return $directory;
@@ -80,6 +57,6 @@ class Application extends IlluminateApplication
      */
     public function configPath($path = ''): string
     {
-        return dirname(path: __DIR__) . '/Config'.($path != '' ? DIRECTORY_SEPARATOR.$path : '');
+        return dirname(path: __DIR__).'/Config'.($path != '' ? DIRECTORY_SEPARATOR.$path : '');
     }
 }

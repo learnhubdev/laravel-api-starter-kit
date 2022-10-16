@@ -18,6 +18,5 @@ class ModelServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Model::shouldBeStrict(shouldBeStrict: ! $this->app->isProduction());
-
     }
 }

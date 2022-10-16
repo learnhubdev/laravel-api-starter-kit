@@ -23,11 +23,17 @@ return [
         18 => 'Illuminate\\Translation\\TranslationServiceProvider',
         19 => 'Illuminate\\Validation\\ValidationServiceProvider',
         20 => 'Illuminate\\View\\ViewServiceProvider',
-        21 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
-        22 => 'App\\Infrastructure\\Laravel\\Providers\\LaravelServiceProvider',
-        23 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
-        24 => 'App\\Infrastructure\\Laravel\\Providers\\EventServiceProvider',
-        25 => 'App\\Infrastructure\\Laravel\\Providers\\RouteServiceProvider',
+        21 => 'Laravel\\Sail\\SailServiceProvider',
+        22 => 'Laravel\\Sanctum\\SanctumServiceProvider',
+        23 => 'Laravel\\Tinker\\TinkerServiceProvider',
+        24 => 'Carbon\\Laravel\\ServiceProvider',
+        25 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+        26 => 'Termwind\\Laravel\\TermwindServiceProvider',
+        27 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
+        28 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
+        29 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
+        30 => 'App\\Infrastructure\\Laravel\\Providers\\EventServiceProvider',
+        31 => 'App\\Infrastructure\\Laravel\\Providers\\RouteServiceProvider',
     ],
     'eager' => [
         0 => 'Illuminate\\Cookie\\CookieServiceProvider',
@@ -39,11 +45,15 @@ return [
         6 => 'Illuminate\\Pagination\\PaginationServiceProvider',
         7 => 'Illuminate\\Session\\SessionServiceProvider',
         8 => 'Illuminate\\View\\ViewServiceProvider',
-        9 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
-        10 => 'App\\Infrastructure\\Laravel\\Providers\\LaravelServiceProvider',
-        11 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
-        12 => 'App\\Infrastructure\\Laravel\\Providers\\EventServiceProvider',
-        13 => 'App\\Infrastructure\\Laravel\\Providers\\RouteServiceProvider',
+        9 => 'Laravel\\Sanctum\\SanctumServiceProvider',
+        10 => 'Carbon\\Laravel\\ServiceProvider',
+        11 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+        12 => 'Termwind\\Laravel\\TermwindServiceProvider',
+        13 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
+        14 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
+        15 => 'App\\Infrastructure\\Laravel\\Providers\\AuthServiceProvider',
+        16 => 'App\\Infrastructure\\Laravel\\Providers\\EventServiceProvider',
+        17 => 'App\\Infrastructure\\Laravel\\Providers\\RouteServiceProvider',
     ],
     'deferred' => [
         'Illuminate\\Broadcasting\\BroadcastManager' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -175,6 +185,9 @@ return [
         'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
         'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
         'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+        'Laravel\\Sail\\Console\\InstallCommand' => 'Laravel\\Sail\\SailServiceProvider',
+        'Laravel\\Sail\\Console\\PublishCommand' => 'Laravel\\Sail\\SailServiceProvider',
+        'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     ],
     'when' => [
         'Illuminate\\Broadcasting\\BroadcastServiceProvider' => [
@@ -200,6 +213,10 @@ return [
         'Illuminate\\Translation\\TranslationServiceProvider' => [
         ],
         'Illuminate\\Validation\\ValidationServiceProvider' => [
+        ],
+        'Laravel\\Sail\\SailServiceProvider' => [
+        ],
+        'Laravel\\Tinker\\TinkerServiceProvider' => [
         ],
     ],
 ];
