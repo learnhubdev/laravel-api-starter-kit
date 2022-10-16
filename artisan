@@ -5,7 +5,7 @@ use Illuminate\Contracts\Console\Kernel;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-define('LARAVEL_START', microtime(true));
+define('LARAVEL_START', microtime(as_float: true));
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +34,11 @@ $app = require_once __DIR__.'/App/Infrastructure/Laravel/Bootstrap/app.php';
 |
 */
 
-$kernel = $app->make(Kernel::class);
+$kernel = $app->make(abstract: Kernel::class);
 
 $status = $kernel->handle(
-    $input = new ArgvInput,
-    new ConsoleOutput
+    input: $input = new ArgvInput,
+    output: new ConsoleOutput
 );
 
 /*
@@ -52,6 +52,6 @@ $status = $kernel->handle(
 |
 */
 
-$kernel->terminate($input, $status);
+$kernel->terminate(input: $input, status: $status);
 
 exit($status);

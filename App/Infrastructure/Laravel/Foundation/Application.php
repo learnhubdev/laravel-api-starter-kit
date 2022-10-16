@@ -37,7 +37,7 @@ class Application extends IlluminateApplication
         $this->instance(abstract: 'path.database', instance: $this->databasePath(path: 'App/Infrastructure/Laravel/Database'));
         $this->instance(abstract: 'path.resources', instance: $this->resourcePath(path: 'App/Infrastructure/Laravel/Resources'));
         $this->instance(abstract: 'path.bootstrap', instance: $this->bootstrapPath(path: 'App/Infrastructure/Laravel/Bootstrap'));
-
+        $this->useDatabasePath(path: dirname(path: __DIR__) . '/Database');
         $this->useAppPath(path: dirname(path: __DIR__));
         $this->useStoragePath(path: dirname(path: __DIR__).'/Storage');
         $this->useLangPath(path: value(value: function () {
