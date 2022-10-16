@@ -2,7 +2,8 @@
 /public/build
 /public/hot
 /public/storage
-/storage/*.key
+App/Infrastructure/Laravel/Storage/*.key
+
 /vendor
 .env
 .env.backup

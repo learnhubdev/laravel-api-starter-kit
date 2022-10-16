@@ -1,15 +1,17 @@
 {
-    "name": "laravel/laravel",
+    "name": "learnhubdev/laravel-api-starter-kit",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "version": "0.1.0",
+    "description": "A Laravel API Starter Kit for long-term projects",
+    "keywords": ["framework", "laravel", "starter kit"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "ext-pdo": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -22,14 +24,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "App/",
+            "Laravel\\": "App/Infrastructure/Laravel/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "App/Infrastructure/Laravel/Tests/"
         }
     },
     "scripts": {
