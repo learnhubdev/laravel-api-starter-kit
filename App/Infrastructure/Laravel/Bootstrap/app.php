@@ -11,10 +11,10 @@
 |
 */
 
-use App\Infrastructure\Laravel\Console\Kernel as ConsoleKernel;
-use App\Infrastructure\Laravel\Exceptions\Handler;
-use App\Infrastructure\Laravel\Foundation\Application;
-use App\Infrastructure\Laravel\Http\Kernel as HttpKernel;
+use Laravel\Console\Kernel as ConsoleKernel;
+use Laravel\Exceptions\Handler;
+use Laravel\Foundation\Application;
+use Laravel\Http\Kernel as HttpKernel;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Http\Kernel as HttpKernelContract;

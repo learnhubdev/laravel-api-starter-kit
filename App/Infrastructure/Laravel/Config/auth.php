@@ -1,6 +1,6 @@
 <?php
 
-use App\Infrastructure\Laravel\Models\User;
+use Laravel\Models\User;
 
 return [
 

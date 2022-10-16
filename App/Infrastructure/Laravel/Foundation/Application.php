@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Laravel\Foundation;
+namespace Laravel\Foundation;
 
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as IlluminateApplication;

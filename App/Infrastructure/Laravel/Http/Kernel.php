@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Laravel\Http;
+namespace Laravel\Http;
 
-use App\Infrastructure\Laravel\Http\Middleware\Authenticate;
-use App\Infrastructure\Laravel\Http\Middleware\EncryptCookies;
-use App\Infrastructure\Laravel\Http\Middleware\PreventRequestsDuringMaintenance;
-use App\Infrastructure\Laravel\Http\Middleware\TrimStrings;
-use App\Infrastructure\Laravel\Http\Middleware\TrustProxies;
-use App\Infrastructure\Laravel\Http\Middleware\ValidateSignature;
-use App\Infrastructure\Laravel\Http\Middleware\VerifyCsrfToken;
+use Laravel\Http\Middleware\Authenticate;
+use Laravel\Http\Middleware\EncryptCookies;
+use Laravel\Http\Middleware\PreventRequestsDuringMaintenance;
+use Laravel\Http\Middleware\TrimStrings;
+use Laravel\Http\Middleware\TrustProxies;
+use Laravel\Http\Middleware\ValidateSignature;
+use Laravel\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;

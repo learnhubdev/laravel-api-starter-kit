@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Laravel\Providers;
+namespace Laravel\Providers;
 
-use App\Infrastructure\Laravel\Models\User;
+use Laravel\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

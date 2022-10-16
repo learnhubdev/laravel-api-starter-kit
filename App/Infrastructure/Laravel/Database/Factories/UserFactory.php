@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Laravel\Database\Factories;
+namespace Laravel\Database\Factories;
 
-use App\Infrastructure\Laravel\Models\User;
+use Laravel\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
