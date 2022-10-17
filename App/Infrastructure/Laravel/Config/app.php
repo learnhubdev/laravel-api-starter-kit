@@ -1,8 +1,5 @@
 <?php
 
-use Laravel\Providers\AuthServiceProvider;
-use Laravel\Providers\EventServiceProvider;
-use Laravel\Providers\RouteServiceProvider;
 use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 use Illuminate\Broadcasting\BroadcastServiceProvider;
 use Illuminate\Bus\BusServiceProvider;
@@ -24,6 +21,9 @@ use Illuminate\Session\SessionServiceProvider;
 use Illuminate\Translation\TranslationServiceProvider;
 use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
+use Laravel\Providers\AuthServiceProvider;
+use Laravel\Providers\EventServiceProvider;
+use Laravel\Providers\RouteServiceProvider;
 
 return [
 

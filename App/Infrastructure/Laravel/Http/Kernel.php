@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace Laravel\Http;
 
-use Laravel\Http\Middleware\Authenticate;
-use Laravel\Http\Middleware\EncryptCookies;
-use Laravel\Http\Middleware\PreventRequestsDuringMaintenance;
-use Laravel\Http\Middleware\TrimStrings;
-use Laravel\Http\Middleware\TrustProxies;
-use Laravel\Http\Middleware\ValidateSignature;
-use Laravel\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
@@ -29,6 +22,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Laravel\Http\Middleware\Authenticate;
+use Laravel\Http\Middleware\EncryptCookies;
+use Laravel\Http\Middleware\PreventRequestsDuringMaintenance;
+use Laravel\Http\Middleware\TrimStrings;
+use Laravel\Http\Middleware\TrustProxies;
+use Laravel\Http\Middleware\ValidateSignature;
+use Laravel\Http\Middleware\VerifyCsrfToken;
 
 class Kernel extends HttpKernel
 {
