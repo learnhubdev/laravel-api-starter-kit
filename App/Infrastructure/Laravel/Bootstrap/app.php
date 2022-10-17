@@ -11,13 +11,13 @@
 |
 */
 
+use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
 use Laravel\Console\Kernel as ConsoleKernel;
 use Laravel\Exceptions\Handler;
 use Laravel\Foundation\Application;
 use Laravel\Http\Kernel as HttpKernel;
-use Illuminate\Contracts\Console\Kernel as ConsoleKernelContract;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Contracts\Http\Kernel as HttpKernelContract;
 
 $app = new Application(
     basePath: dirname(path: __DIR__, levels: 4)

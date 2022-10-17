@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Laravel\Providers;
 
-use Laravel\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Laravel\Models\User;
 
 class RelationServiceProvider extends ServiceProvider
 {

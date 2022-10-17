@@ -1,0 +1,13 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "App"
+        ],
+        "excludes": ["App/Infrastructure/Laravel/Resources/Views/*.blade.php"]
+    },
+    "mutators": {
+        "@default": true
+    },
+
+}
