@@ -1,3 +1,3 @@
 # Laravel API Starter Kit
 
-A Laravel API Starter Kit for long-term projects
+An opinionated Laravel API Starter Kit for long-term projects inspired by the tactical patterns from Domain-Driven Design.
