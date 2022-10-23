@@ -13,6 +13,7 @@ Things to do before releasing the v1 officially:
 - [ ] Implement teams
 - [ ] Implement 2-factor authentication
 - [ ] Implement profile management
+- [ ] Implement a caching strategy
 - [ ] Set up testing
 - [ ] Set up mutation testing (infection PHP)
 - [ ] Set up PHPStan
