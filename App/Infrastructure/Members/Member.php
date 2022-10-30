@@ -22,6 +22,7 @@ use Snowflake\SnowflakeCast;
  * @property string|null $remember_token
  * @property string|null $created_at
  * @property string|null $updated_at
+ *
  * @method static Builder|Member newModelQuery()
  * @method static Builder|Member newQuery()
  * @method static Builder|Member query()
@@ -36,7 +37,7 @@ use Snowflake\SnowflakeCast;
  * @method static Builder|Member whereUpdatedAt($value)
  * @mixin Eloquent
  */
-class Member extends BaseModel
+final class Member extends BaseModel
 {
     use HasFactory;
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 use Illuminate\Broadcasting\BroadcastServiceProvider;
-use Illuminate\Bus\BusServiceProvider;
+use Illuminate\Bus\BusServiceProvider as IlluminateBusServiceProvider;
 use Illuminate\Cache\CacheServiceProvider;
 use Illuminate\Cookie\CookieServiceProvider;
 use Illuminate\Database\DatabaseServiceProvider;
@@ -22,7 +22,9 @@ use Illuminate\Translation\TranslationServiceProvider;
 use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
 use Laravel\Providers\AuthServiceProvider;
+use Laravel\Providers\BusServiceProvider;
 use Laravel\Providers\EventServiceProvider;
+use Laravel\Providers\MemberServiceProvider;
 use Laravel\Providers\RouteAttributesServiceProvider;
 use Laravel\Providers\RouteServiceProvider;
 
@@ -185,7 +187,7 @@ return [
          */
         AuthServiceProvider::class,
         BroadcastServiceProvider::class,
-        BusServiceProvider::class,
+        IlluminateBusServiceProvider::class,
         CacheServiceProvider::class,
         ConsoleSupportServiceProvider::class,
         CookieServiceProvider::class,
@@ -213,7 +215,8 @@ return [
         //BroadcastServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
-        RouteAttributesServiceProvider::class
+        RouteAttributesServiceProvider::class,
+        BusServiceProvider::class,
+        MemberServiceProvider::class,
     ],
-
 ];

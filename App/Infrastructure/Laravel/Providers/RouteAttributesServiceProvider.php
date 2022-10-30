@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laravel\Providers;
 
 use Spatie\RouteAttributes\RouteAttributesServiceProvider as SpatieRouteAttributesServiceProvider;
 
-class RouteAttributesServiceProvider extends SpatieRouteAttributesServiceProvider
+final class RouteAttributesServiceProvider extends SpatieRouteAttributesServiceProvider
 {
     /**
      * @return void

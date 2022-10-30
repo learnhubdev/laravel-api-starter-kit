@@ -8,7 +8,7 @@ use App\Infrastructure\Authentication\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class RelationServiceProvider extends ServiceProvider
+final class RelationServiceProvider extends ServiceProvider
 {
     /**
      * Register any authentication / authorization services.
