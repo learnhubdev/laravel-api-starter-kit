@@ -18,6 +18,7 @@
         "spatie/laravel-route-attributes": "^1.15"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "infection/infection": "^0.26.15",
         "laravel/pint": "^1.0",

@@ -2,33 +2,60 @@
 
 namespace App\Infrastructure\Authentication;
 
- use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Infrastructure\Laravel\Models\BaseModel;
+use Eloquent;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
- use Snowflake\SnowflakeCast;
+use Laravel\Sanctum\PersonalAccessToken;
+use Snowflake\SnowflakeCast;
 
- class User extends Authenticatable implements MustVerifyEmail
+/**
+ * App\Infrastructure\Authentication\User
+ *
+ * @property mixed|null $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property mixed|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property mixed|null $created_at
+ * @property mixed|null $updated_at
+ * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @property-read Collection|PersonalAccessToken[] $tokens
+ * @property-read int|null $tokens_count
+ * @method static Builder|User newModelQuery()
+ * @method static Builder|User newQuery()
+ * @method static Builder|User query()
+ * @method static Builder|User whereCreatedAt($value)
+ * @method static Builder|User whereEmail($value)
+ * @method static Builder|User whereEmailVerifiedAt($value)
+ * @method static Builder|User whereFirstName($value)
+ * @method static Builder|User whereId($value)
+ * @method static Builder|User whereLastName($value)
+ * @method static Builder|User wherePassword($value)
+ * @method static Builder|User whereRememberToken($value)
+ * @method static Builder|User whereUpdatedAt($value)
+ * @mixin Eloquent
+ */
+class User extends BaseModel implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
-    protected $table = 'users';
-
-    public $timestamps = false;
-
-    public $incrementing = false;
+    use Authenticatable, Authorizable, CanResetPassword, \Illuminate\Auth\MustVerifyEmail, HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * @var string
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $table = 'users';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,6 +74,13 @@ use Laravel\Sanctum\HasApiTokens;
      */
     protected $casts = [
         'id' => SnowflakeCast::class,
-        'email_verified_at' => 'datetime',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'email' => 'string',
+        'password' => 'string',
+        'remember_token' => 'string',
+        'created_at' => 'datetime_immutable',
+        'updated_at' => 'datetime_immutable',
+        'email_verified_at' => 'datetime_immutable',
     ];
 }
