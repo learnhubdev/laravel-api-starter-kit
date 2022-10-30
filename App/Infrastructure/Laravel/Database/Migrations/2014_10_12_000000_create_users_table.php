@@ -16,7 +16,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create(table: 'users', callback: function (Blueprint $table) {
-            $table->id();
+            $table->snowflake()->primary();
             $table->string(column: 'first_name', length: 100);
             $table->string(column: 'last_name', length: 100);
             $table->string(column: 'email', length: 200)->unique();

@@ -16,7 +16,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create(table: 'personal_access_tokens', callback: function (Blueprint $table) {
-            $table->id();
+            $table->snowflake()->primary();
             $table->morphs(name: 'tokenable');
             $table->string(column: 'name');
             $table->string(column: 'token', length: 64)->unique();

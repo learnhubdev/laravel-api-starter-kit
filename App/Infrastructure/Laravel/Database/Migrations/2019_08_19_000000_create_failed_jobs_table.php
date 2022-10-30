@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create(table: 'failed_jobs', callback: function (Blueprint $table) {
-            $table->id();
+            $table->snowflake()->primary();
             $table->string(column: 'uuid')->unique();
             $table->text(column: 'connection');
             $table->text(column: 'queue');

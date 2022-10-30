@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Laravel\Database\Factories;
 
+use App\Infrastructure\Authentication\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Laravel\Models\User;
 
 /**
  * @extends Factory<User>
