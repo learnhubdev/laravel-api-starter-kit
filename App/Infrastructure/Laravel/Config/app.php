@@ -23,6 +23,7 @@ use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
 use Laravel\Providers\AuthServiceProvider;
 use Laravel\Providers\EventServiceProvider;
+use Laravel\Providers\RouteAttributesServiceProvider;
 use Laravel\Providers\RouteServiceProvider;
 
 return [
@@ -206,17 +207,13 @@ return [
         ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-
-        /*
          * Application Service Providers...
          */
         AuthServiceProvider::class,
         //BroadcastServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
-
+        RouteAttributesServiceProvider::class
     ],
 
 ];

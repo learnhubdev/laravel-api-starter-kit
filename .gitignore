@@ -16,3 +16,5 @@ yarn-error.log
 /.idea
 /.vscode
 .deptrac.cache
+
+App/Infrastructure/Laravel/Bootstrap/cache/*
