@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.7",
         "mattkingshott/snowflake": "^2.0",
         "nunomaduro/laravel-pot": "^0.2.0",
-        "spatie/laravel-route-attributes": "^1.15"
+        "spatie/laravel-route-attributes": "^1.15",
+        "symfony/clock": "^6.2@beta"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

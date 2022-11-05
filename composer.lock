@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27af22333913dd2fd5d76e503c9c77da",
+    "content-hash": "1527153975f20a5f5061004dce32781c",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -3545,6 +3545,72 @@
                 }
             ],
             "time": "2022-10-01T10:39:27+00:00"
+        },
+        {
+            "name": "symfony/clock",
+            "version": "v6.2.0-BETA1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/clock.git",
+                "reference": "7ac961f8a8bc44ab1bf2eb3bec634e6fc64738e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/clock/zipball/7ac961f8a8bc44ab1bf2eb3bec634e6fc64738e6",
+                "reference": "7ac961f8a8bc44ab1bf2eb3bec634e6fc64738e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Clock\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Decouples applications from the system clock",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "clock",
+                "psr20",
+                "time"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/clock/tree/v6.2.0-BETA1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-10-17T16:20:35+00:00"
         },
         {
             "name": "symfony/console",
@@ -10249,7 +10315,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "symfony/clock": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

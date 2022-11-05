@@ -12,12 +12,14 @@ use App\Domain\Members\MemberSignedUp;
 use Assert\AssertionFailedException;
 use DateTimeImmutable;
 use Illuminate\Contracts\Events\Dispatcher;
+use Symfony\Component\Clock\ClockInterface;
 
 final class SignUpMemberCommandHandler
 {
     public function __construct(
         private readonly MemberRepository $memberRepository,
-        private readonly Dispatcher $eventDispatcher
+        private readonly Dispatcher $eventDispatcher,
+        private readonly ClockInterface $clock
     ) {
     }
 
@@ -42,8 +44,8 @@ final class SignUpMemberCommandHandler
             firstName: $signUpMemberCommand->getFirstName(),
             lastName: $signUpMemberCommand->getLastName(),
             emailAddress: $emailAddress,
-            createdAt: (new DateTimeImmutable()),
-            updatedAt: (new DateTimeImmutable()),
+            createdAt: $this->clock->now(),
+            updatedAt: $this->clock->now(),
             password: $signUpMemberCommand->getPassword(),
         );
 
