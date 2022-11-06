@@ -8,26 +8,31 @@ use App\Domain\Members\EmailAddress;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberRepository;
-use App\Infrastructure\Laravel\Events\Dispatcher;
+use App\Infrastructure\Laravel\Contracts\EventDispatcher;
 use Assert\AssertionFailedException;
 use Symfony\Component\Clock\ClockInterface;
 
 final class SignUpMemberCommandHandler
 {
+    /**
+     * @param  MemberRepository  $memberRepository
+     * @param  EventDispatcher  $eventDispatcher
+     * @param  ClockInterface  $clock
+     */
     public function __construct(
         private readonly MemberRepository $memberRepository,
-        private readonly Dispatcher $eventDispatcher,
+        private readonly EventDispatcher $eventDispatcher,
         private readonly ClockInterface $clock
     ) {
     }
 
     /**
-     * @param  SignUpMemberCommand  $signUpMemberCommand
+     * @param  SignUpMember  $signUpMemberCommand
      * @return void
      *
      * @throws EmailAddressIsAlreadyTaken|AssertionFailedException
      */
-    public function handle(SignUpMemberCommand $signUpMemberCommand): void
+    public function handle(SignUpMember $signUpMemberCommand): void
     {
         $emailAddress = new EmailAddress(value: $signUpMemberCommand->getEmailAddress());
 

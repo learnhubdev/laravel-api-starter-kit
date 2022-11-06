@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Laravel\Providers;
 
 use App\Domain\Members\MemberSignedUp;
+use App\Infrastructure\Laravel\Contracts\EventDispatcher;
+use App\Infrastructure\Laravel\Events\Dispatcher;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -29,6 +31,14 @@ final class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+    }
+
+    /**
+     * @return void
+     */
+    public function register(): void
+    {
+        $this->app->singleton(abstract: EventDispatcher::class, concrete: Dispatcher::class);
     }
 
     /**

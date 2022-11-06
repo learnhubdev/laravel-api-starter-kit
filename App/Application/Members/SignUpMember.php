@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Members;
 
-final class SignUpMemberCommand
+final class SignUpMember
 {
     public function __construct(
         private readonly string $firstName,
