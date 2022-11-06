@@ -45,7 +45,7 @@ final class SignUpMemberCommandHandler
             throw new EmailAddressIsAlreadyTaken();
         }
 
-        $member = new Member(
+        $member = Member::signUp(
             id: $this->memberRepository->generateIdentity(),
             firstName: $signUpMember->getFirstName(),
             lastName: $signUpMember->getLastName(),

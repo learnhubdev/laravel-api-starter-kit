@@ -17,9 +17,9 @@ final class Member
      * @param  DateTimeImmutable  $updatedAt
      * @param  string|null  $password
      * @param  DateTimeImmutable|null  $emailVerifiedAt
-     * @param  array  $events
+     * @param  array|null  $events
      */
-    public function __construct(
+    private function __construct(
         private readonly string $id,
         private readonly string $firstName,
         private readonly string $lastName,
@@ -28,9 +28,42 @@ final class Member
         private readonly DateTimeImmutable $updatedAt,
         private readonly ?string $password,
         private ?DateTimeImmutable $emailVerifiedAt = null,
-        private array $events = []
+        private ?array $events = []
     ) {
-        $this->events[] = new MemberSignedUp($this);
+    }
+
+    /**
+     * @param  string  $id
+     * @param  string  $firstName
+     * @param  string  $lastName
+     * @param  EmailAddress  $emailAddress
+     * @param  DateTimeImmutable  $createdAt
+     * @param  DateTimeImmutable  $updatedAt
+     * @param  string|null  $password
+     * @return self
+     */
+    public static function signUp(
+        string $id,
+        string $firstName,
+        string $lastName,
+        EmailAddress $emailAddress,
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt,
+        ?string $password
+    ): self {
+        $member = new self(
+            id: $id,
+            firstName: $firstName,
+            lastName: $lastName,
+            emailAddress: $emailAddress,
+            createdAt: $createdAt,
+            updatedAt: $updatedAt,
+            password: $password
+        );
+
+        $member->events[] = new MemberSignedUp($member);
+
+        return $member;
     }
 
     /**
