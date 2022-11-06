@@ -10,6 +10,7 @@ use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberRepository;
 use Assert\AssertionFailedException;
+use Illuminate\Contracts\Hashing\Hasher;
 use Symfony\Component\Clock\ClockInterface;
 
 final class SignUpMemberCommandHandler
@@ -18,11 +19,13 @@ final class SignUpMemberCommandHandler
      * @param  MemberRepository  $memberRepository
      * @param  EventDispatcher  $eventDispatcher
      * @param  ClockInterface  $clock
+     * @param  Hasher  $hasher
      */
     public function __construct(
         private readonly MemberRepository $memberRepository,
         private readonly EventDispatcher $eventDispatcher,
-        private readonly ClockInterface $clock
+        private readonly ClockInterface $clock,
+        private readonly Hasher $hasher
     ) {
     }
 
@@ -49,7 +52,7 @@ final class SignUpMemberCommandHandler
             emailAddress: $emailAddress,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
-            password: $signUpMemberCommand->getPassword(),
+            password: $this->hasher->make(value: $signUpMemberCommand->getPassword())
         );
 
         $this->memberRepository->save(member: $member);
