@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Laravel\Contracts;
+namespace App\Application\Events;
 
 use Illuminate\Contracts\Events\Dispatcher;
 

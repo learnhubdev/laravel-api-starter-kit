@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Laravel\Events;
 
 use App\Application\Events\EventDispatcher;
-use Illuminate\Events\Dispatcher as IlluminateDispatcher;
+use Illuminate\Support\Testing\Fakes\EventFake as IlluminateEventFake;
 
-final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
+final class FakeEventDispatcher extends IlluminateEventFake implements EventDispatcher
 {
     /**
      * @param  array  $events

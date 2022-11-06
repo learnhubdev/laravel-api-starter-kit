@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Members;
 
+use App\Application\Events\EventDispatcher;
 use App\Domain\Members\EmailAddress;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberRepository;
-use App\Infrastructure\Laravel\Contracts\EventDispatcher;
 use Assert\AssertionFailedException;
 use Symfony\Component\Clock\ClockInterface;
 
