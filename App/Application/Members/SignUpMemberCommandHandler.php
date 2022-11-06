@@ -37,7 +37,7 @@ final class SignUpMemberCommandHandler
      */
     public function handle(SignUpMember $signUpMemberCommand): void
     {
-        $emailAddress = new EmailAddress(value: $signUpMemberCommand->getEmailAddress());
+        $emailAddress = EmailAddress::createFromString(emailAddress: $signUpMemberCommand->getEmailAddress());
 
         $emailAddressExists = $this->memberRepository->existsByEmailAddress(emailAddress: $emailAddress->getValue());
 

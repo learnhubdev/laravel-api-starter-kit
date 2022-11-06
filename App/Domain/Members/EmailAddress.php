@@ -37,4 +37,14 @@ final class EmailAddress
     {
         return $this->value;
     }
+
+    /**
+     * @param  string  $emailAddress
+     * @return static
+     * @throws AssertionFailedException
+     */
+    public static function createFromString(string $emailAddress): self
+    {
+        return new self(value: $emailAddress);
+    }
 }
