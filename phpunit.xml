@@ -6,11 +6,14 @@
          executionOrder="random"
 >
     <testsuites>
-        <testsuite name="Unit">
-            <directory>App/Infrastructure/Laravel/Tests/Unit</directory>
+        <testsuite name="Domain">
+            <directory>App/Infrastructure/Laravel/Tests/Domain</directory>
         </testsuite>
-        <testsuite name="Feature">
-            <directory>App/Infrastructure/Laravel/Tests/Feature</directory>
+        <testsuite name="Infrastructure">
+            <directory>App/Infrastructure/Laravel/Tests/Infrastructure</directory>
+        </testsuite>
+        <testsuite name="Application">
+            <directory>App/Infrastructure/Laravel/Tests/Application</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
