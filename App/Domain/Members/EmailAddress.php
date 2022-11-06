@@ -41,6 +41,7 @@ final class EmailAddress
     /**
      * @param  string  $emailAddress
      * @return static
+     *
      * @throws AssertionFailedException
      */
     public static function createFromString(string $emailAddress): self

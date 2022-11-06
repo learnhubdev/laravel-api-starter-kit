@@ -11,13 +11,12 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
 {
     /**
      * @param  array  $events
-     *
      * @return void
      */
     public function flushAll(array $events): void
     {
         /** @var Dispatcher $event */
-        foreach($events as $event) {
+        foreach ($events as $event) {
             $this->flush(event: $event::class);
         }
     }

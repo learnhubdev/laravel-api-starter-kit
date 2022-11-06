@@ -29,6 +29,7 @@ final class EloquentMemberRepository implements MemberRepository
      * @param  string  $emailAddress
      * @param  array  $columns
      * @return MemberReadModel
+     *
      * @throws CouldNotFindMember
      */
     public function findByEmailAddress(string $emailAddress, array $columns = self::DEFAULT_COLUMNS): MemberReadModel
@@ -38,7 +39,7 @@ final class EloquentMemberRepository implements MemberRepository
             ->where(column: 'email', operator: '=', value: $emailAddress)
             ->first();
 
-        if (!$member) {
+        if (! $member) {
             throw new CouldNotFindMember();
         }
 

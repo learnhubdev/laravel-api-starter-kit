@@ -35,7 +35,6 @@ final class Member
 
     /**
      * @param  DateTimeImmutable  $date
-     *
      * @return void
      */
     public function markAsVerified(DateTimeImmutable $date): void

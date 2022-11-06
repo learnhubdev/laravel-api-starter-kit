@@ -11,13 +11,12 @@ final class FakeEventDispatcher extends IlluminateEventFake implements EventDisp
 {
     /**
      * @param  array  $events
-     *
      * @return void
      */
     public function flushAll(array $events): void
     {
         /** @var Dispatcher $event */
-        foreach($events as $event) {
+        foreach ($events as $event) {
             $this->flush(event: $event::class);
         }
     }

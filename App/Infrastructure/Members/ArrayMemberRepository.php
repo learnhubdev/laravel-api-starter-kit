@@ -17,7 +17,6 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function __construct(private array $members = [])
     {
-
     }
 
     public function generateIdentity(): string
@@ -28,6 +27,7 @@ final class ArrayMemberRepository implements MemberRepository
     /**
      * @param  string  $emailAddress
      * @return MemberReadModel
+     *
      * @throws CouldNotFindMember
      */
     public function findByEmailAddress(string $emailAddress): MemberReadModel
@@ -41,7 +41,7 @@ final class ArrayMemberRepository implements MemberRepository
             'emailAddress' => $member['email'],
             'createdAt' => $member['created_at'],
             'updatedAt' => $member['updated_at'],
-            'emailVerifiedAt' => $member['email_verified_at'] ?? null
+            'emailVerifiedAt' => $member['email_verified_at'] ?? null,
         ]);
     }
 
