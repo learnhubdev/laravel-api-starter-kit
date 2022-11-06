@@ -30,14 +30,14 @@ final class SignUpMemberCommandHandler
     }
 
     /**
-     * @param  SignUpMember  $signUpMemberCommand
+     * @param  SignUpMember  $signUpMember
      * @return void
      *
      * @throws EmailAddressIsAlreadyTaken|AssertionFailedException
      */
-    public function handle(SignUpMember $signUpMemberCommand): void
+    public function handle(SignUpMember $signUpMember): void
     {
-        $emailAddress = EmailAddress::createFromString(emailAddress: $signUpMemberCommand->getEmailAddress());
+        $emailAddress = EmailAddress::createFromString(emailAddress: $signUpMember->getEmailAddress());
 
         $emailAddressExists = $this->memberRepository->existsByEmailAddress(emailAddress: $emailAddress->getValue());
 
@@ -47,12 +47,12 @@ final class SignUpMemberCommandHandler
 
         $member = new Member(
             id: $this->memberRepository->generateIdentity(),
-            firstName: $signUpMemberCommand->getFirstName(),
-            lastName: $signUpMemberCommand->getLastName(),
+            firstName: $signUpMember->getFirstName(),
+            lastName: $signUpMember->getLastName(),
             emailAddress: $emailAddress,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
-            password: $this->hasher->make(value: $signUpMemberCommand->getPassword())
+            password: $this->hasher->make(value: $signUpMember->getPassword())
         );
 
         $this->memberRepository->save(member: $member);
