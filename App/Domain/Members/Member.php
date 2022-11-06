@@ -34,70 +34,6 @@ final class Member
     }
 
     /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @return EmailAddress
-     */
-    public function getEmailAddress(): EmailAddress
-    {
-        return $this->emailAddress;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @return DateTimeImmutable
-     */
-    public function getCreatedAt(): DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return DateTimeImmutable
-     */
-    public function getUpdatedAt(): DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @return DateTimeImmutable|null
-     */
-    public function getEmailVerifiedAt(): ?DateTimeImmutable
-    {
-        return $this->emailVerifiedAt;
-    }
-
-    /**
      * @param  DateTimeImmutable  $date
      *
      * @return void
@@ -110,18 +46,19 @@ final class Member
     }
 
     /**
-     * @return array
+     * @return array<int, string>
      */
     public function mapForPersistence(): array
     {
         return [
-            'first_name' => $this->getFirstName(),
-            'last_name' => $this->getLastName(),
-            'email' => $this->getEmailAddress(),
-            'password' => $this->getPassword(),
-            'created_at' => $this->getCreatedAt(),
-            'updated_at' => $this->getUpdatedAt(),
-            'email_verified_at' => $this->getEmailVerifiedAt(),
+            'id' => $this->id,
+            'first_name' => $this->firstName,
+            'last_name' => $this->lastName,
+            'email' => $this->emailAddress,
+            'password' => $this->password,
+            'created_at' => $this->createdAt,
+            'updated_at' => $this->updatedAt,
+            'email_verified_at' => $this->emailVerifiedAt,
         ];
     }
 

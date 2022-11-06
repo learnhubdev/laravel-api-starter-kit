@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Members;
 
+use App\Domain\Members\CouldNotFindMember;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberRepository;
@@ -12,15 +13,6 @@ use Godruoyi\Snowflake\Snowflake;
 
 final class EloquentMemberRepository implements MemberRepository
 {
-    private const DEFAULT_COLUMNS = [
-        'id',
-        'first_name',
-        'last_name',
-        'email',
-        'created_at',
-        'updated_at',
-    ];
-
     /**
      * @param  MemberEloquentModel  $member
      */
@@ -37,13 +29,18 @@ final class EloquentMemberRepository implements MemberRepository
      * @param  string  $emailAddress
      * @param  array  $columns
      * @return MemberReadModel
+     * @throws CouldNotFindMember
      */
     public function findByEmailAddress(string $emailAddress, array $columns = self::DEFAULT_COLUMNS): MemberReadModel
     {
         $member = $this->member->newQuery()
             ->select(columns: $columns)
             ->where(column: 'email', operator: '=', value: $emailAddress)
-            ->firstOrFail();
+            ->first();
+
+        if (!$member) {
+            throw new CouldNotFindMember();
+        }
 
         return MemberReadModel::createFromEloquentModel($member);
     }

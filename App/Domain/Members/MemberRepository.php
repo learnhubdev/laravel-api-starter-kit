@@ -4,6 +4,15 @@ namespace App\Domain\Members;
 
 interface MemberRepository
 {
+    public const DEFAULT_COLUMNS = [
+        'id',
+        'first_name',
+        'last_name',
+        'email',
+        'created_at',
+        'updated_at',
+    ];
+
     /**
      * @return string
      */

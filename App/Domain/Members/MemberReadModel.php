@@ -100,4 +100,21 @@ final class MemberReadModel
             emailVerifiedAt: $member->email_verified_at
         );
     }
+
+    /**
+     * @param  array  $member
+     * @return self
+     */
+    public static function createFromArray(array $member): self
+    {
+        return new self(
+            id: $member['id'],
+            firstName: $member['firstName'],
+            lastName: $member['lastName'],
+            emailAddress: $member['email'],
+            createdAt: $member['createdAt'],
+            updatedAt: $member['updatedAt'],
+            emailVerifiedAt: $member['emailVerifiedAt'] ?? null
+        );
+    }
 }
