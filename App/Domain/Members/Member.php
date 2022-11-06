@@ -17,6 +17,7 @@ final class Member
      * @param  DateTimeImmutable  $updatedAt
      * @param  string|null  $password
      * @param  DateTimeImmutable|null  $emailVerifiedAt
+     * @param  array  $events
      */
     public function __construct(
         private readonly string $id,
@@ -26,8 +27,10 @@ final class Member
         private readonly DateTimeImmutable $createdAt,
         private readonly DateTimeImmutable $updatedAt,
         private readonly ?string $password,
-        private ?DateTimeImmutable $emailVerifiedAt = null
+        private ?DateTimeImmutable $emailVerifiedAt = null,
+        private array $events = []
     ) {
+        $this->events[] = new MemberSignedUp($this);
     }
 
     /**
@@ -95,11 +98,15 @@ final class Member
     }
 
     /**
+     * @param  DateTimeImmutable  $date
+     *
      * @return void
      */
-    public function markAsVerified(): void
+    public function markAsVerified(DateTimeImmutable $date): void
     {
-        $this->emailVerifiedAt = new DateTimeImmutable();
+        $this->emailVerifiedAt = $date;
+
+        $this->events[] = new MemberWasVerified($date);
     }
 
     /**
@@ -116,5 +123,13 @@ final class Member
             'updated_at' => $this->getUpdatedAt(),
             'email_verified_at' => $this->getEmailVerifiedAt(),
         ];
+    }
+
+    /**
+     * @return array<int, object>
+     */
+    public function releaseEvents(): array
+    {
+        return $this->events;
     }
 }

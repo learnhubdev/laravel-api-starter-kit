@@ -8,10 +8,8 @@ use App\Domain\Members\EmailAddress;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberRepository;
-use App\Domain\Members\MemberSignedUp;
+use App\Infrastructure\Laravel\Events\Dispatcher;
 use Assert\AssertionFailedException;
-use DateTimeImmutable;
-use Illuminate\Contracts\Events\Dispatcher;
 use Symfony\Component\Clock\ClockInterface;
 
 final class SignUpMemberCommandHandler
@@ -31,7 +29,7 @@ final class SignUpMemberCommandHandler
      */
     public function handle(SignUpMemberCommand $signUpMemberCommand): void
     {
-        $emailAddress = new EmailAddress($signUpMemberCommand->getEmailAddress());
+        $emailAddress = new EmailAddress(value: $signUpMemberCommand->getEmailAddress());
 
         $emailAddressExists = $this->memberRepository->existsByEmailAddress(emailAddress: $emailAddress->getValue());
 
@@ -49,10 +47,8 @@ final class SignUpMemberCommandHandler
             password: $signUpMemberCommand->getPassword(),
         );
 
-        $this->eventDispatcher->push(event: MemberSignedUp::class, payload: ['member' => $member]);
-
         $this->memberRepository->save(member: $member);
 
-        $this->eventDispatcher->flush(event: MemberSignedUp::class);
+        $this->eventDispatcher->flushall(events: $member->releaseEvents());
     }
 }
