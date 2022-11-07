@@ -61,7 +61,7 @@ final class Member
             password: $password
         );
 
-        $member->events[] = new MemberSignedUp($member);
+        $member->events[] = new MemberSignedUp(member: $member);
 
         return $member;
     }
@@ -74,7 +74,7 @@ final class Member
     {
         $this->emailVerifiedAt = $date;
 
-        $this->events[] = new MemberWasVerified($date);
+        $this->events[] = new MemberWasVerified(date: $date);
     }
 
     /**

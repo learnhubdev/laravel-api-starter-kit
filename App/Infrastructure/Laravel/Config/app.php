@@ -23,6 +23,7 @@ use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
 use Laravel\Providers\AuthServiceProvider;
 use Laravel\Providers\BusServiceProvider;
+use Laravel\Providers\ClockServiceProvider;
 use Laravel\Providers\EventServiceProvider;
 use Laravel\Providers\MemberServiceProvider;
 use Laravel\Providers\RouteAttributesServiceProvider;
@@ -217,6 +218,7 @@ return [
         RouteServiceProvider::class,
         RouteAttributesServiceProvider::class,
         BusServiceProvider::class,
+        ClockServiceProvider::class,
         MemberServiceProvider::class,
     ],
 ];
