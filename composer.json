@@ -2,7 +2,7 @@
     "name": "learnhubdev/laravel-api-starter-kit",
     "type": "project",
     "version": "0.1.1",
-    "description": "A Laravel API Starter Kit for long-term projects",
+    "description": "A Laravel API Starter Kit for long-term projects inspired by the tactical patterns of Domain-Driven Design",
     "keywords": ["framework", "laravel", "starter kit"],
     "license": "MIT",
     "require": {

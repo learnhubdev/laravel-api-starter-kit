@@ -1363,16 +1363,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.38.0",
+            "version": "v9.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "abf198e443e06696af3f356b44de67c0fa516107"
+                "reference": "67e674709e1e7db14f304a871481f310822d68c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/abf198e443e06696af3f356b44de67c0fa516107",
-                "reference": "abf198e443e06696af3f356b44de67c0fa516107",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/67e674709e1e7db14f304a871481f310822d68c5",
+                "reference": "67e674709e1e7db14f304a871481f310822d68c5",
                 "shasum": ""
             },
             "require": {
@@ -1545,7 +1545,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-01T14:05:55+00:00"
+            "time": "2022-11-08T14:47:39+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2236,16 +2236,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.62.1",
+            "version": "2.63.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "01bc4cdefe98ef58d1f9cb31bdbbddddf2a88f7a"
+                "reference": "ad35dd71a6a212b98e4b87e97389b6fa85f0e347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/01bc4cdefe98ef58d1f9cb31bdbbddddf2a88f7a",
-                "reference": "01bc4cdefe98ef58d1f9cb31bdbbddddf2a88f7a",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ad35dd71a6a212b98e4b87e97389b6fa85f0e347",
+                "reference": "ad35dd71a6a212b98e4b87e97389b6fa85f0e347",
                 "shasum": ""
             },
             "require": {
@@ -2334,7 +2334,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-02T07:48:13+00:00"
+            "time": "2022-10-30T18:34:28+00:00"
         },
         {
             "name": "nette/schema",
@@ -3189,16 +3189,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.8",
+            "version": "v0.11.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "f455acf3645262ae389b10e9beba0c358aa6994e"
+                "reference": "1acec99d6684a54ff92f8b548a4e41b566963778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/f455acf3645262ae389b10e9beba0c358aa6994e",
-                "reference": "f455acf3645262ae389b10e9beba0c358aa6994e",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1acec99d6684a54ff92f8b548a4e41b566963778",
+                "reference": "1acec99d6684a54ff92f8b548a4e41b566963778",
                 "shasum": ""
             },
             "require": {
@@ -3259,9 +3259,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.8"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.9"
             },
-            "time": "2022-07-28T14:25:11+00:00"
+            "time": "2022-11-06T15:29:46+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8936,16 +8936,16 @@
         },
         {
             "name": "sanmai/pipeline",
-            "version": "v6.1",
+            "version": "v6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sanmai/pipeline.git",
-                "reference": "3a88f2617237e18d5cd2aa38ca3d4b22770306c2"
+                "reference": "1c14946cb089776fb024807f1e4f5a985db0ce3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/3a88f2617237e18d5cd2aa38ca3d4b22770306c2",
-                "reference": "3a88f2617237e18d5cd2aa38ca3d4b22770306c2",
+                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/1c14946cb089776fb024807f1e4f5a985db0ce3c",
+                "reference": "1c14946cb089776fb024807f1e4f5a985db0ce3c",
                 "shasum": ""
             },
             "require": {
@@ -8989,7 +8989,7 @@
             "description": "General-purpose collections pipeline",
             "support": {
                 "issues": "https://github.com/sanmai/pipeline/issues",
-                "source": "https://github.com/sanmai/pipeline/tree/v6.1"
+                "source": "https://github.com/sanmai/pipeline/tree/v6.2"
             },
             "funding": [
                 {
@@ -8997,7 +8997,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-30T08:15:59+00:00"
+            "time": "2022-11-09T05:47:57+00:00"
         },
         {
             "name": "sebastian/cli-parser",
