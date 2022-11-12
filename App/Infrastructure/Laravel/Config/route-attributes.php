@@ -18,6 +18,11 @@ return [
             'prefix' => 'api/v1',
             'namespace' => '\App\Infrastructure\Members',
         ],
+        base_path(path: 'App/Infrastructure/Home') => [
+            'middleware' => 'api',
+            'prefix' => 'api/v1',
+            'namespace' => '\App\Infrastructure\Home',
+        ],
     ],
 
     /**

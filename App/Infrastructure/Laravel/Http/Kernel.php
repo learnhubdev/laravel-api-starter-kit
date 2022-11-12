@@ -32,19 +32,6 @@ use Laravel\Http\Middleware\VerifyCsrfToken;
 class Kernel extends HttpKernel
 {
     /**
-     * The bootstrap classes for the application.
-     *
-     * @var string[]
-     */
-    protected $bootstrappers = [
-        LoadEnvironmentVariables::class,
-        LoadConfiguration::class,
-        HandleExceptions::class,
-        RegisterProviders::class,
-        BootProviders::class,
-    ];
-
-    /**
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
