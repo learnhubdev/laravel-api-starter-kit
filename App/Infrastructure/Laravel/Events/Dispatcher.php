@@ -20,4 +20,15 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
             $this->flush(event: $event::class);
         }
     }
+
+    /**
+     * @param  array  $events
+     * @return void
+     */
+    public function dispatchAll(array $events): void
+    {
+        foreach($events as $event) {
+            $this->dispatch($event::class, get_class_vars($event::class));
+        }
+    }
 }

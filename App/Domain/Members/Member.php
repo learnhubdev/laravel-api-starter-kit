@@ -8,6 +8,10 @@ use DateTimeImmutable;
 
 final class Member
 {
+    private DateTimeImmutable $emailVerifiedAt;
+
+    public array $events = [];
+
     /**
      * @param  string  $id
      * @param  string  $firstName
@@ -16,8 +20,6 @@ final class Member
      * @param  DateTimeImmutable  $createdAt
      * @param  DateTimeImmutable  $updatedAt
      * @param  string|null  $password
-     * @param  DateTimeImmutable|null  $emailVerifiedAt
-     * @param  array|null  $events
      */
     private function __construct(
         private readonly string $id,
@@ -26,9 +28,7 @@ final class Member
         private readonly EmailAddress $emailAddress,
         private readonly DateTimeImmutable $createdAt,
         private readonly DateTimeImmutable $updatedAt,
-        private readonly ?string $password,
-        private ?DateTimeImmutable $emailVerifiedAt = null,
-        private ?array $events = []
+        private readonly ?string $password
     ) {
     }
 
@@ -61,7 +61,7 @@ final class Member
             password: $password
         );
 
-        $member->events[] = new MemberSignedUp(member: $member);
+        $member->raiseEvent(new MemberSignedUp(member: $member));
 
         return $member;
     }
@@ -74,7 +74,7 @@ final class Member
     {
         $this->emailVerifiedAt = $date;
 
-        $this->events[] = new MemberWasVerified(date: $date);
+        $this->raiseEvent(new MemberWasVerified(date: $date));
     }
 
     /**
@@ -95,10 +95,23 @@ final class Member
     }
 
     /**
+     * @param  object  $event
+     * @return void
+     */
+    public function raiseEvent(object $event): void
+    {
+        $this->events[] = $event;
+    }
+
+    /**
      * @return array<int, object>
      */
     public function releaseEvents(): array
     {
-        return $this->events;
+        $events = $this->events;
+
+        $this->events = [];
+
+        return $events;
     }
 }
