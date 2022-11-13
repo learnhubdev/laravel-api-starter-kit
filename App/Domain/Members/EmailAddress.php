@@ -21,9 +21,9 @@ final class EmailAddress
      *
      * @throws AssertionFailedException
      */
-    public function __construct(string $value)
+    private function __construct(string $value)
     {
-        Assertion::string(value: $value, message: 'The email address must be a valid string.');
+        Assertion::string(value: $value, message: 'The email address is required.');
         Assertion::email(value: $value, message: 'The email address must be in a valid format.');
         Assertion::maxLength(value: $value, maxLength: self::VALUE_MAX_LENGTH, message: sprintf('The maximum length of an email address must be %d', self::VALUE_MAX_LENGTH));
 

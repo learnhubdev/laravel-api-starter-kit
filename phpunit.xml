@@ -16,16 +16,6 @@
             <directory>App/Infrastructure/Laravel/Tests/Application</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
-        <report>
-            <clover outputFile="report/coverage.xml"/>
-            <html outputDirectory="report/" lowUpperBound="35" highLowerBound="80"/>
-            <text outputFile="coverage.txt" showUncoveredFiles="true" showOnlySummary="false"/>
-        </report>
-        <include>
-            <directory suffix=".php">App</directory>
-        </include>
-    </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
