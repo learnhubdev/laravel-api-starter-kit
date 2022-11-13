@@ -32,17 +32,20 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function findByEmailAddress(string $emailAddress): MemberReadModel
     {
-        $member = $this->members[$emailAddress] ?? throw new CouldNotFindMember();
+        foreach ($this->members as $member) {
+            if ($member->getEmailAddressFromTests()->getValue() === $emailAddress) {
+                return MemberReadModel::createFromArray([
+                    'id' => $member->getIdFromTests(),
+                    'firstName' => $member->getFirstNameFromTests(),
+                    'lastName' => $member->getLastNameFromTests(),
+                    'email' => $member->getEmailAddressFromTests()->getValue(),
+                    'createdAt' => $member->getCreatedAtFromTests()->format(format: 'Y-m-d H:i:s'),
+                    'updatedAt' => $member->getUpdatedAtFromTests()->format(format: 'Y-m-d H:i:s'),
+                ]);
+            }
+        }
 
-        return MemberReadModel::createFromArray([
-            'id' => $member['id'],
-            'firstName' => $member['first_name'],
-            'lastName' => $member['last_name'],
-            'emailAddress' => $member['email'],
-            'createdAt' => $member['created_at'],
-            'updatedAt' => $member['updated_at'],
-            'emailVerifiedAt' => $member['email_verified_at'] ?? null,
-        ]);
+        throw new CouldNotFindMember();
     }
 
     /**
@@ -51,7 +54,13 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function existsByEmailAddress(string $emailAddress): bool
     {
-        return isset($this->members[$emailAddress]);
+        foreach ($this->members as $member) {
+            if ($member->getEmailAddressFromTests()->getValue() === $emailAddress) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

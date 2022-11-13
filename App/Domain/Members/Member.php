@@ -86,11 +86,11 @@ final class Member
             'id' => $this->id,
             'first_name' => $this->firstName,
             'last_name' => $this->lastName,
-            'email' => $this->emailAddress,
+            'email' => $this->emailAddress->getValue(),
             'password' => $this->password,
             'created_at' => $this->createdAt,
             'updated_at' => $this->updatedAt,
-            'email_verified_at' => $this->emailVerifiedAt,
+            'email_verified_at' => $this->emailVerifiedAt ?? null,
         ];
     }
 
@@ -113,5 +113,69 @@ final class Member
         $this->events = [];
 
         return $events;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdFromTests(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstNameFromTests(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastNameFromTests(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @return EmailAddress
+     */
+    public function getEmailAddressFromTests(): EmailAddress
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * @return DateTimeImmutable
+     */
+    public function getCreatedAtFromTests(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return DateTimeImmutable
+     */
+    public function getUpdatedAtFromTests(): DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPasswordFromTests(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return DateTimeImmutable|null
+     */
+    public function getEmailVerifiedAtFromTests(): ?DateTimeImmutable
+    {
+        return $this->emailVerifiedAt ?? null;
     }
 }
