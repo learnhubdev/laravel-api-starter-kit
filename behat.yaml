@@ -1,8 +1,5 @@
 default:
   suites:
     application:
-      paths: [
-        "%paths.base%/App/Infrastructure/Laravel/Tests/Application/Members"
-      ]
-      contexts:
-        - Tests\Application\Members\SignUpMemberCommandHandler
+      paths: []
+      contexts: []
