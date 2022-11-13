@@ -18,4 +18,5 @@ yarn-error.log
 .deptrac.cache
 
 App/Infrastructure/Laravel/Bootstrap/cache/*
-App/Infrastructure/Laravel/Storage/framework/cache/*
+App/Infrastructure/Laravel/Storage/framework/cache/data/.gitignore
+App/Infrastructure/Laravel/Storage/framework/cache/data/*
