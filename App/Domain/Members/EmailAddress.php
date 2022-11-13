@@ -25,7 +25,7 @@ final class EmailAddress
     {
         Assertion::string(value: $value, message: 'The email address must be a valid string.');
         Assertion::email(value: $value, message: 'The email address must be in a valid format.');
-        Assertion::maxLength(value: $value, maxLength: self::VALUE_MAX_LENGTH, message: sprintf('The maximum length of an email address must be %d',self::VALUE_MAX_LENGTH));
+        Assertion::maxLength(value: $value, maxLength: self::VALUE_MAX_LENGTH, message: sprintf('The maximum length of an email address must be %d', self::VALUE_MAX_LENGTH));
 
         $this->value = $value;
     }

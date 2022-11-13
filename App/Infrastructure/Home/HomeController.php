@@ -15,7 +15,7 @@ final class HomeController
     {
         return new JsonResponse([
             'message' => 'Welcome to the Laravel API Starter Kit Homepage',
-            'code' => Response::HTTP_OK
+            'code' => Response::HTTP_OK,
         ]);
     }
 }

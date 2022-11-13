@@ -27,7 +27,7 @@ final class FakeEventDispatcher extends IlluminateEventFake implements EventDisp
      */
     public function dispatchAll(array $events): void
     {
-        foreach($events as $event) {
+        foreach ($events as $event) {
             $this->dispatch($event::class, get_class_vars($event::class));
         }
     }

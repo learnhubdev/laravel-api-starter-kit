@@ -32,6 +32,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
      * @test
      *
      * @return void
+     *
      * @throws EmailAddressIsAlreadyTaken
      * @throws AssertionFailedException
      * @throws CouldNotFindMember
@@ -64,11 +65,11 @@ final class SignUpMemberCommandHandlerTest extends TestCase
         $this->assertTrue(condition: $this->memberRepository->existsByEmailAddress($emailAddress));
     }
 
-
     /**
      * @test
      *
      * @return void
+     *
      * @throws EmailAddressIsAlreadyTaken
      * @throws AssertionFailedException
      */

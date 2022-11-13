@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Illuminate\Contracts\Console\Kernel;
 use Laravel\Foundation\Application;
 

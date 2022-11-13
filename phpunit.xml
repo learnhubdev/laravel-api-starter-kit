@@ -17,8 +17,13 @@
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
+        <report>
+            <clover outputFile="report/coverage.xml"/>
+            <html outputDirectory="report/" lowUpperBound="35" highLowerBound="80"/>
+            <text outputFile="coverage.txt" showUncoveredFiles="true" showOnlySummary="false"/>
+        </report>
         <include>
-            <directory suffix=".php">./App</directory>
+            <directory suffix=".php">App</directory>
         </include>
     </coverage>
     <php>
