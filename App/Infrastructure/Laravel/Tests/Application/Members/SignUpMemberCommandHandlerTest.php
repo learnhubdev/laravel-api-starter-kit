@@ -105,6 +105,6 @@ final class SignUpMemberCommandHandlerTest extends TestCase
             )
         );
 
-        $this->eventDispatcher->assertDispatchedTimes(event: MemberSignedUp::class);
+        $this->eventDispatcher->assertDispatchedTimes(event: MemberSignedUp::class, times: 1);
     }
 }
