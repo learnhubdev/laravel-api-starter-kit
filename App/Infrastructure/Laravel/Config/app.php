@@ -26,6 +26,7 @@ use Laravel\Providers\BusServiceProvider;
 use Laravel\Providers\ClockServiceProvider;
 use Laravel\Providers\EventServiceProvider;
 use Laravel\Providers\MemberServiceProvider;
+use Laravel\Providers\ModelFactoryServiceProvider;
 use Laravel\Providers\RouteAttributesServiceProvider;
 use Laravel\Providers\RouteServiceProvider;
 
@@ -219,6 +220,7 @@ return [
         RouteAttributesServiceProvider::class,
         BusServiceProvider::class,
         ClockServiceProvider::class,
+        ModelFactoryServiceProvider::class,
         MemberServiceProvider::class,
     ],
 ];

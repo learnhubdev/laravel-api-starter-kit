@@ -51,8 +51,7 @@
         "test:phpunit": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testdox",
         "test:behat": "./vendor/bin/behat",
         "test": [
-            "@test:phpunit",
-            "@test:functional"
+            "@test:phpunit"
         ],
         "fix": "./vendor/bin/pint",
         "post-autoload-dump": [

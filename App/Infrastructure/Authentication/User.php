@@ -80,8 +80,8 @@ class User extends BaseModel implements MustVerifyEmail
         'email' => 'string',
         'password' => 'string',
         'remember_token' => 'string',
-        'created_at' => 'datetime_immutable',
-        'updated_at' => 'datetime_immutable',
-        'email_verified_at' => 'datetime_immutable',
+        'created_at' => 'immutable_datetime',
+        'updated_at' => 'immutable_datetime',
+        'email_verified_at' => 'immutable_datetime',
     ];
 }
