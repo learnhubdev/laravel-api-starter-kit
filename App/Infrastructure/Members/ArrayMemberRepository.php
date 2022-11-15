@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Members;
 
-use App\Domain\Members\CouldNotFindMember;
+use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberRepository;
+use Assert\AssertionFailedException;
 use Godruoyi\Snowflake\Snowflake;
 
 final class ArrayMemberRepository implements MemberRepository
@@ -28,7 +29,8 @@ final class ArrayMemberRepository implements MemberRepository
      * @param  string  $emailAddress
      * @return MemberReadModel
      *
-     * @throws CouldNotFindMember
+     * @throws MemberWasNotFound
+     * @throws AssertionFailedException
      */
     public function findByEmailAddress(string $emailAddress): MemberReadModel
     {
@@ -45,7 +47,7 @@ final class ArrayMemberRepository implements MemberRepository
             }
         }
 
-        throw new CouldNotFindMember();
+        throw new MemberWasNotFound();
     }
 
     /**

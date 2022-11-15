@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace App\Infrastructure\Laravel\Tests\Domain\Members;
 
 use App\Domain\Members\EmailAddress;
+use App\Domain\Members\FirstName;
+use App\Domain\Members\Id;
+use App\Domain\Members\LastName;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberSignedUp;
+use App\Domain\Members\Password;
 use App\Infrastructure\Members\ArrayMemberRepository;
 use Assert\AssertionFailedException;
 use Faker\Factory;
@@ -37,13 +41,13 @@ final class MemberTest extends TestCase
         $password = $faker->password();
 
         $member = Member::signUp(
-            id: $this->memberRepository->generateIdentity(),
-            firstName: $faker->firstName(),
-            lastName: $faker->lastName(),
-            emailAddress: EmailAddress::createFromString(emailAddress: $faker->unique()->freeEmail()),
+            id: Id::createFromString(value: $this->memberRepository->generateIdentity()),
+            firstName: FirstName::createFromString(value: $faker->firstName()),
+            lastName: LastName::createFromString(value: $faker->lastName()),
+            emailAddress: EmailAddress::createFromString(value: $faker->unique()->freeEmail()),
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
-            password: $this->hasher->make(value: $password)
+            password: Password::createFromString(value: $this->hasher->make(value: $password))
         );
 
         $events = $member->releaseEvents();

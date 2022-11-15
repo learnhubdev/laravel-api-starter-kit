@@ -5,7 +5,7 @@ namespace App\Domain\Members;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
 
-final class CouldNotFindMember extends Exception
+final class MemberWasNotFound extends Exception
 {
     public function __construct()
     {

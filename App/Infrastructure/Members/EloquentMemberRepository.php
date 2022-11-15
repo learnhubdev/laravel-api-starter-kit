@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Members;
 
-use App\Domain\Members\CouldNotFindMember;
+use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberRepository;
@@ -30,7 +30,7 @@ final class EloquentMemberRepository implements MemberRepository
      * @param  array  $columns
      * @return MemberReadModel
      *
-     * @throws CouldNotFindMember
+     * @throws MemberWasNotFound
      */
     public function findByEmailAddress(string $emailAddress, array $columns = self::DEFAULT_COLUMNS): MemberReadModel
     {
@@ -40,10 +40,10 @@ final class EloquentMemberRepository implements MemberRepository
             ->first();
 
         if (! $member) {
-            throw new CouldNotFindMember();
+            throw new MemberWasNotFound();
         }
 
-        return MemberReadModel::createFromEloquentModel($member);
+        return MemberReadModel::createFromEloquentModel(member: $member);
     }
 
     /**

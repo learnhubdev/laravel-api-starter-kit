@@ -13,43 +13,43 @@ final class Member
     public array $events = [];
 
     /**
-     * @param  string  $id
-     * @param  string  $firstName
-     * @param  string  $lastName
+     * @param  Id  $id
+     * @param  FirstName  $firstName
+     * @param  LastName  $lastName
      * @param  EmailAddress  $emailAddress
      * @param  DateTimeImmutable  $createdAt
      * @param  DateTimeImmutable  $updatedAt
-     * @param  string|null  $password
+     * @param  Password|null  $password
      */
     private function __construct(
-        private readonly string $id,
-        private readonly string $firstName,
-        private readonly string $lastName,
+        private readonly Id $id,
+        private readonly FirstName $firstName,
+        private readonly LastName $lastName,
         private readonly EmailAddress $emailAddress,
         private readonly DateTimeImmutable $createdAt,
         private readonly DateTimeImmutable $updatedAt,
-        private readonly ?string $password
+        private readonly ?Password $password
     ) {
     }
 
     /**
-     * @param  string  $id
-     * @param  string  $firstName
-     * @param  string  $lastName
+     * @param  Id  $id
+     * @param  FirstName  $firstName
+     * @param  LastName  $lastName
      * @param  EmailAddress  $emailAddress
      * @param  DateTimeImmutable  $createdAt
      * @param  DateTimeImmutable  $updatedAt
-     * @param  string|null  $password
+     * @param  Password|null  $password
      * @return self
      */
     public static function signUp(
-        string $id,
-        string $firstName,
-        string $lastName,
+        Id $id,
+        FirstName $firstName,
+        LastName $lastName,
         EmailAddress $emailAddress,
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt,
-        ?string $password
+        ?Password $password
     ): self {
         $member = new self(
             id: $id,
@@ -83,11 +83,11 @@ final class Member
     public function mapForPersistence(): array
     {
         return [
-            'id' => $this->id,
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
+            'id' => $this->id->getValue(),
+            'first_name' => $this->firstName->getValue(),
+            'last_name' => $this->lastName->getValue(),
             'email' => $this->emailAddress->getValue(),
-            'password' => $this->password,
+            'password' => $this->password->getValue(),
             'created_at' => $this->createdAt->format(format: 'Y-m-d H:i:s'),
             'updated_at' => $this->updatedAt->format(format: 'Y-m-d H:i:s'),
             'email_verified_at' => $this->emailVerifiedAt?->format(format: 'Y-m-d H:i:s'),

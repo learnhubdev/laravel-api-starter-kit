@@ -7,25 +7,19 @@ namespace App\Domain\Members;
 use Assert\Assertion;
 use Assert\AssertionFailedException;
 
-final class EmailAddress
+final class Id
 {
-    private const VALUE_MAX_LENGTH = 200;
-
     /**
      * @var string
      */
     private readonly string $value;
 
     /**
-     * @param  string  $value
-     *
      * @throws AssertionFailedException
      */
     private function __construct(string $value)
     {
-        Assertion::string(value: $value, message: 'The email address is required.');
-        Assertion::email(value: $value, message: 'The email address must be in a valid format.');
-        Assertion::maxLength(value: $value, maxLength: self::VALUE_MAX_LENGTH, message: sprintf('The maximum length of an email address must be %d', self::VALUE_MAX_LENGTH));
+        Assertion::string(value: $value, message: 'The id is required.');
 
         $this->value = $value;
     }
@@ -40,8 +34,7 @@ final class EmailAddress
 
     /**
      * @param  string  $value
-     * @return static
-     *
+     * @return $this
      * @throws AssertionFailedException
      */
     public static function createFromString(string $value): self

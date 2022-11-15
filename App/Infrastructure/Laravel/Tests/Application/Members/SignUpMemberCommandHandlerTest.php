@@ -6,7 +6,7 @@ namespace App\Infrastructure\Laravel\Tests\Application\Members;
 
 use App\Application\Members\SignUpMember;
 use App\Application\Members\SignUpMemberCommandHandler;
-use App\Domain\Members\CouldNotFindMember;
+use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\MemberSignedUp;
 use App\Infrastructure\Members\ArrayMemberRepository;
@@ -35,7 +35,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
      *
      * @throws EmailAddressIsAlreadyTaken
      * @throws AssertionFailedException
-     * @throws CouldNotFindMember
+     * @throws MemberWasNotFound
      */
     public function a_new_member_can_sign_up(): void
     {
