@@ -7,7 +7,7 @@ namespace App\Infrastructure\Laravel\Tests\Domain\Members;
 use App\Domain\Members\EmailAddress;
 use Assert\AssertionFailedException;
 use Faker\Factory;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class EmailAddressTest extends TestCase
 {

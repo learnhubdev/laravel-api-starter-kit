@@ -15,15 +15,15 @@ use Faker\Factory;
 use Illuminate\Hashing\BcryptHasher;
 use Laravel\Events\Dispatcher;
 use Laravel\Events\FakeEventDispatcher;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Clock\MockClock;
-use Tests\TestCase;
 
 final class SignUpMemberCommandHandlerTest extends TestCase
 {
     protected function setUp(): void
     {
         $this->memberRepository = new ArrayMemberRepository();
-        $this->eventDispatcher = new FakeEventDispatcher(dispatcher: new Dispatcher($this->app));
+        $this->eventDispatcher = new FakeEventDispatcher(dispatcher: new Dispatcher());
         $this->clock = new MockClock();
         $this->hasher = new BcryptHasher();
     }

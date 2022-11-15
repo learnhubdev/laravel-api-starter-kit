@@ -15,8 +15,8 @@ use App\Infrastructure\Members\ArrayMemberRepository;
 use Assert\AssertionFailedException;
 use Faker\Factory;
 use Illuminate\Hashing\BcryptHasher;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Clock\MockClock;
-use Tests\TestCase;
 
 final class MemberTest extends TestCase
 {
