@@ -32,7 +32,6 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function findByEmailAddress(string $emailAddress): MemberReadModel
     {
-
         foreach ($this->members as $member) {
             if ($member['email'] === $emailAddress) {
                 return MemberReadModel::createFromArray([

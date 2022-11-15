@@ -1,8 +1,7 @@
 <?php
 
-namespace Laravel\Database\Factories;
+namespace App\Infrastructure\Members;
 
-use App\Infrastructure\Members\Member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
