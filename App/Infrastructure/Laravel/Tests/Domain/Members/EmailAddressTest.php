@@ -22,7 +22,7 @@ final class EmailAddressTest extends TestCase
     {
         $faker = Factory::create();
 
-        $emailAddress = EmailAddress::createFromString($faker->unique()->freeEmail());
+        $emailAddress = EmailAddress::createFromString(emailAddress: $faker->unique()->freeEmail());
 
         $this->assertNotNull($emailAddress);
         $this->assertInstanceOf(expected: EmailAddress::class, actual: $emailAddress);
@@ -43,7 +43,7 @@ final class EmailAddressTest extends TestCase
         $this->expectException(exception: AssertionFailedException::class);
         $this->expectExceptionMessage(message: $message);
 
-        EmailAddress::createFromString($emailAddress);
+        EmailAddress::createFromString(emailAddress: $emailAddress);
     }
 
     /**

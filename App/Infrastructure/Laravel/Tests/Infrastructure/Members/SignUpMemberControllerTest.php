@@ -52,8 +52,8 @@ final class SignUpMemberControllerTest extends TestCase
 
         $this->assertDatabaseMissing(table: 'users', data: Arr::except(array: $member->toArray(), keys: ['password']));
 
-        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
-            ->assertJsonValidationErrors($errorField ?: $field);
+        $response->assertStatus(status: Response::HTTP_UNPROCESSABLE_ENTITY)
+            ->assertJsonValidationErrors(errors: $errorField ?: $field);
     }
 
     /**

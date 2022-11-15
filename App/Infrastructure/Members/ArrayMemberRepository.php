@@ -13,7 +13,7 @@ use Godruoyi\Snowflake\Snowflake;
 final class ArrayMemberRepository implements MemberRepository
 {
     /**
-     * @param  array<int, Member>  $members
+     * @param  array<int, MemberReadModel>  $members
      */
     public function __construct(private array $members = [])
     {
@@ -32,15 +32,16 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function findByEmailAddress(string $emailAddress): MemberReadModel
     {
+
         foreach ($this->members as $member) {
-            if ($member->getEmailAddressFromTests()->getValue() === $emailAddress) {
+            if ($member['email'] === $emailAddress) {
                 return MemberReadModel::createFromArray([
-                    'id' => $member->getIdFromTests(),
-                    'firstName' => $member->getFirstNameFromTests(),
-                    'lastName' => $member->getLastNameFromTests(),
-                    'email' => $member->getEmailAddressFromTests()->getValue(),
-                    'createdAt' => $member->getCreatedAtFromTests()->format(format: 'Y-m-d H:i:s'),
-                    'updatedAt' => $member->getUpdatedAtFromTests()->format(format: 'Y-m-d H:i:s'),
+                    'id' => $member['id'],
+                    'firstName' => $member['first_name'],
+                    'lastName' => $member['last_name'],
+                    'email' => $member['email'],
+                    'createdAt' => $member['created_at'],
+                    'updatedAt' => $member['updated_at'],
                 ]);
             }
         }
@@ -55,7 +56,7 @@ final class ArrayMemberRepository implements MemberRepository
     public function existsByEmailAddress(string $emailAddress): bool
     {
         foreach ($this->members as $member) {
-            if ($member->getEmailAddressFromTests()->getValue() === $emailAddress) {
+            if ($member['email'] === $emailAddress) {
                 return true;
             }
         }
@@ -69,6 +70,6 @@ final class ArrayMemberRepository implements MemberRepository
      */
     public function save(Member $member): void
     {
-        $this->members[] = $member;
+        $this->members[] = $member->mapForPersistence();
     }
 }

@@ -52,6 +52,5 @@ final class MemberTest extends TestCase
         $this->assertInstanceOf(expected: MemberSignedUp::class, actual: $events[0]);
         $this->assertCount(expectedCount: 0, haystack: $member->releaseEvents());
         $this->assertInstanceOf(expected: Member::class, actual: $member);
-        $this->assertTrue(condition: $this->hasher->check(value: $password, hashedValue: $member->getPasswordFromTests()));
     }
 }
