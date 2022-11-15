@@ -9,6 +9,8 @@ use Assert\AssertionFailedException;
 
 final class Id
 {
+    private const VALUE_LENGTH = 18;
+
     /**
      * @var string
      */
@@ -20,6 +22,7 @@ final class Id
     private function __construct(string $value)
     {
         Assertion::string(value: $value, message: 'The id is required.');
+        Assertion::length(value: $value, length: self::VALUE_LENGTH, message: sprintf('The length of the id must be %d', self::VALUE_LENGTH));
 
         $this->value = $value;
     }
