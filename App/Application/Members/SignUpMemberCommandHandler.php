@@ -57,6 +57,6 @@ final class SignUpMemberCommandHandler
 
         $this->memberRepository->save(member: $member);
 
-        $this->eventDispatcher->dispatchAll(events: $member->releaseEvents());
+        $this->eventDispatcher->dispatchMultiple(events: $member->releaseEvents());
     }
 }

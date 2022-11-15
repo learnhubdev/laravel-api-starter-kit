@@ -13,9 +13,8 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
      * @param  array  $events
      * @return void
      */
-    public function flushAll(array $events): void
+    public function flushMultiple(array $events): void
     {
-        /** @var Dispatcher $event */
         foreach ($events as $event) {
             $this->flush(event: $event::class);
         }
@@ -23,12 +22,13 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
 
     /**
      * @param  array  $events
+     * @param  bool  $halt
      * @return void
      */
-    public function dispatchAll(array $events): void
+    public function dispatchMultiple(array $events, bool $halt = false): void
     {
         foreach ($events as $event) {
-            $this->dispatch($event::class, get_class_vars($event::class));
+            $this->dispatch(event: $event::class, payload: get_class_vars($event::class), halt: $halt);
         }
     }
 }
