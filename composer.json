@@ -25,6 +25,7 @@
         "brianium/paratest": "^6.6",
         "fakerphp/faker": "^1.9.1",
         "infection/infection": "^0.26.15",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.11",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",

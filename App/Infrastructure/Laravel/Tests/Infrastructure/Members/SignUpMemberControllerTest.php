@@ -17,8 +17,6 @@ final class SignUpMemberControllerTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
     public function a_member_can_sign_up_for_a_new_account(): void
     {
@@ -36,11 +34,6 @@ final class SignUpMemberControllerTest extends TestCase
     /**
      * @test
      * @dataProvider signUpMemberDataProvider
-     *
-     * @param  string  $field
-     * @param  mixed  $value
-     * @param  string  $errorField
-     * @return void
      */
     public function sign_up_member_validation_errors(string $field, mixed $value, string $errorField = ''): void
     {
@@ -56,9 +49,6 @@ final class SignUpMemberControllerTest extends TestCase
             ->assertJsonValidationErrors(errors: $errorField ?: $field);
     }
 
-    /**
-     * @return array
-     */
     public function signUpMemberDataProvider(): array
     {
         return [

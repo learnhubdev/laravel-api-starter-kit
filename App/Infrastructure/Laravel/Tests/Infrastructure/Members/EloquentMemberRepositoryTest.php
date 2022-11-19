@@ -46,7 +46,6 @@ final class EloquentMemberRepositoryTest extends TestCase
     /**
      * @test
      *
-     * @return void
      * @throws MemberWasNotFound
      * @throws AssertionFailedException
      */
@@ -65,7 +64,7 @@ final class EloquentMemberRepositoryTest extends TestCase
 
     /**
      * @test
-     * @return void
+     *
      * @throws AssertionFailedException
      */
     public function it_cannot_find_a_member_by_email_address_that_does_not_exist(): void
@@ -101,8 +100,6 @@ final class EloquentMemberRepositoryTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
     public function it_returns_true_if_a_member_exists_by_email_address(): void
     {
@@ -117,8 +114,6 @@ final class EloquentMemberRepositoryTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
     public function it_returns_false_if_a_member_does_not_exist_by_email_address(): void
     {

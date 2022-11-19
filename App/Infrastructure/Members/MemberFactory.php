@@ -2,8 +2,6 @@
 
 namespace App\Infrastructure\Members;
 
-use Faker\Generator;
-use Godruoyi\Snowflake\Snowflake;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;

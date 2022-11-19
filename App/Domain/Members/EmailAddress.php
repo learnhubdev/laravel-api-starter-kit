@@ -11,14 +11,9 @@ final class EmailAddress
 {
     private const VALUE_MAX_LENGTH = 200;
 
-    /**
-     * @var string
-     */
     private readonly string $value;
 
     /**
-     * @param  string  $value
-     *
      * @throws AssertionFailedException
      */
     private function __construct(string $value)
@@ -30,18 +25,12 @@ final class EmailAddress
         $this->value = $value;
     }
 
-    /**
-     * @return string
-     */
     public function getValue(): string
     {
         return $this->value;
     }
 
     /**
-     * @param  string  $value
-     * @return static
-     *
      * @throws AssertionFailedException
      */
     public static function createFromString(string $value): self

@@ -6,9 +6,9 @@ namespace App\Infrastructure\Laravel\Tests\Application\Members;
 
 use App\Application\Members\SignUpMember;
 use App\Application\Members\SignUpMemberCommandHandler;
-use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\MemberSignedUp;
+use App\Domain\Members\MemberWasNotFound;
 use App\Infrastructure\Members\ArrayMemberRepository;
 use Assert\AssertionFailedException;
 use Faker\Factory;
@@ -30,8 +30,6 @@ final class SignUpMemberCommandHandlerTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      *
      * @throws EmailAddressIsAlreadyTaken
      * @throws AssertionFailedException
@@ -67,8 +65,6 @@ final class SignUpMemberCommandHandlerTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      *
      * @throws EmailAddressIsAlreadyTaken
      * @throws AssertionFailedException

@@ -19,12 +19,6 @@ use Symfony\Component\Clock\ClockInterface;
 
 final class SignUpMemberCommandHandler
 {
-    /**
-     * @param  MemberRepository  $memberRepository
-     * @param  EventDispatcher  $eventDispatcher
-     * @param  ClockInterface  $clock
-     * @param  Hasher  $hasher
-     */
     public function __construct(
         private readonly MemberRepository $memberRepository,
         private readonly EventDispatcher $eventDispatcher,
@@ -34,9 +28,6 @@ final class SignUpMemberCommandHandler
     }
 
     /**
-     * @param  SignUpMember  $signUpMember
-     * @return void
-     *
      * @throws EmailAddressIsAlreadyTaken|AssertionFailedException
      */
     public function handle(SignUpMember $signUpMember): void

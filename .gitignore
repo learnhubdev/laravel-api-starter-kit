@@ -20,3 +20,4 @@ yarn-error.log
 App/Infrastructure/Laravel/Bootstrap/cache/*
 App/Infrastructure/Laravel/Storage/framework/cache/data/.gitignore
 App/Infrastructure/Laravel/Storage/framework/cache/data/*
+.phpstorm.meta.php

@@ -11,9 +11,6 @@ final class Id
 {
     private const VALUE_LENGTH = 18;
 
-    /**
-     * @var string
-     */
     private readonly string $value;
 
     /**
@@ -27,17 +24,14 @@ final class Id
         $this->value = $value;
     }
 
-    /**
-     * @return string
-     */
     public function getValue(): string
     {
         return $this->value;
     }
 
     /**
-     * @param  string  $value
      * @return $this
+     *
      * @throws AssertionFailedException
      */
     public static function createFromString(string $value): self

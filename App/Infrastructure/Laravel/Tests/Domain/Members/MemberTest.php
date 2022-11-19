@@ -30,8 +30,6 @@ final class MemberTest extends TestCase
     /**
      * @test
      *
-     * @return void
-     *
      * @throws AssertionFailedException
      */
     public function it_raises_an_event_called_member_signed_up_when_the_method_sign_up_is_called(): void

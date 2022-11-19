@@ -24,17 +24,12 @@ final class Password
         $this->value = $value;
     }
 
-    /**
-     * @return string
-     */
     public function getValue(): string
     {
         return $this->value;
     }
 
     /**
-     * @param  string  $value
-     * @return self
      * @throws AssertionFailedException
      */
     public static function createFromString(string $value): self

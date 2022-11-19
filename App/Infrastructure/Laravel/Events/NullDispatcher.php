@@ -9,10 +9,6 @@ use Illuminate\Support\Testing\Fakes\EventFake as IlluminateEventFake;
 
 final class NullDispatcher extends IlluminateEventFake implements EventDispatcher
 {
-    /**
-     * @param  array  $events
-     * @return void
-     */
     public function flushMultiple(array $events): void
     {
         foreach ($events as $event) {
@@ -20,11 +16,6 @@ final class NullDispatcher extends IlluminateEventFake implements EventDispatche
         }
     }
 
-    /**
-     * @param  array  $events
-     * @param  bool  $halt
-     * @return void
-     */
     public function dispatchMultiple(array $events, bool $halt = false): void
     {
         foreach ($events as $event) {

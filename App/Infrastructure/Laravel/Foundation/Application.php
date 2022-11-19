@@ -24,8 +24,6 @@ class Application extends IlluminateApplication
 
     /**
      * Bind all the application paths in the container.
-     *
-     * @return void
      */
     protected function bindPathsInContainer(): void
     {
@@ -53,7 +51,6 @@ class Application extends IlluminateApplication
      * Get the path to the application configuration files.
      *
      * @param  string  $path
-     * @return string
      */
     public function configPath($path = ''): string
     {

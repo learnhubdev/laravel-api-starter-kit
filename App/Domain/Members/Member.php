@@ -12,15 +12,6 @@ final class Member
 
     public array $events = [];
 
-    /**
-     * @param  Id  $id
-     * @param  FirstName  $firstName
-     * @param  LastName  $lastName
-     * @param  EmailAddress  $emailAddress
-     * @param  DateTimeImmutable  $createdAt
-     * @param  DateTimeImmutable  $updatedAt
-     * @param  Password|null  $password
-     */
     private function __construct(
         private readonly Id $id,
         private readonly FirstName $firstName,
@@ -32,16 +23,6 @@ final class Member
     ) {
     }
 
-    /**
-     * @param  Id  $id
-     * @param  FirstName  $firstName
-     * @param  LastName  $lastName
-     * @param  EmailAddress  $emailAddress
-     * @param  DateTimeImmutable  $createdAt
-     * @param  DateTimeImmutable  $updatedAt
-     * @param  Password|null  $password
-     * @return self
-     */
     public static function signUp(
         Id $id,
         FirstName $firstName,
@@ -66,10 +47,6 @@ final class Member
         return $member;
     }
 
-    /**
-     * @param  DateTimeImmutable  $date
-     * @return void
-     */
     public function markAsVerified(DateTimeImmutable $date): void
     {
         $this->emailVerifiedAt = $date;
@@ -94,10 +71,6 @@ final class Member
         ];
     }
 
-    /**
-     * @param  object  $event
-     * @return void
-     */
     public function raiseEvent(object $event): void
     {
         $this->events[] = $event;

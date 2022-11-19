@@ -14,8 +14,6 @@ final class EmailAddressTest extends TestCase
     /**
      * @test
      *
-     * @return void
-     *
      * @throws AssertionFailedException
      */
     public function it_creates_a_valid_email_address(): void
@@ -30,10 +28,6 @@ final class EmailAddressTest extends TestCase
 
     /**
      * @test
-     *
-     * @param  string  $emailAddress
-     * @param  string  $message
-     * @return void
      *
      * @throws AssertionFailedException
      * @dataProvider emailAddressesDataProvider

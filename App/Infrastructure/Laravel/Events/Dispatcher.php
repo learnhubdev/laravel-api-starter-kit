@@ -9,10 +9,6 @@ use Illuminate\Events\Dispatcher as IlluminateDispatcher;
 
 final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
 {
-    /**
-     * @param  array  $events
-     * @return void
-     */
     public function flushMultiple(array $events): void
     {
         foreach ($events as $event) {
@@ -20,11 +16,6 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
         }
     }
 
-    /**
-     * @param  array  $events
-     * @param  bool  $halt
-     * @return void
-     */
     public function dispatchMultiple(array $events, bool $halt = false): void
     {
         foreach ($events as $event) {

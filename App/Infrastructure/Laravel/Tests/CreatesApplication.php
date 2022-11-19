@@ -11,8 +11,6 @@ trait CreatesApplication
 {
     /**
      * Creates the application.
-     *
-     * @return Application
      */
     public function createApplication(): Application
     {

@@ -12,17 +12,10 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 final class SignUpMemberController
 {
-    /**
-     * @param  Dispatcher  $commandBusDispatcher
-     */
     public function __construct(private readonly Dispatcher $commandBusDispatcher)
     {
     }
 
-    /**
-     * @param  SignUpMemberFormRequest  $signUpMemberFormRequest
-     * @return Response
-     */
     #[Post(uri: 'member-sign-ups', name: 'api.v1.member-sign-ups')]
     public function __invoke(SignUpMemberFormRequest $signUpMemberFormRequest): Response
     {

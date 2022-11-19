@@ -8,18 +8,10 @@ use App\Infrastructure\Members\Member as MemberEloquentModel;
 use Assert\AssertionFailedException;
 use Carbon\CarbonImmutable;
 use DateTimeImmutable;
+use Exception;
 
 final class MemberReadModel
 {
-    /**
-     * @param  Id  $id
-     * @param  FirstName  $firstName
-     * @param  LastName  $lastName
-     * @param  EmailAddress  $emailAddress
-     * @param  DateTimeImmutable  $createdAt
-     * @param  DateTimeImmutable  $updatedAt
-     * @param  DateTimeImmutable|null  $emailVerifiedAt
-     */
     public function __construct(
         private readonly Id $id,
         private readonly FirstName $firstName,
@@ -31,65 +23,42 @@ final class MemberReadModel
     ) {
     }
 
-    /**
-     * @return Id
-     */
     public function getId(): Id
     {
         return $this->id;
     }
 
-    /**
-     * @return FirstName
-     */
     public function getFirstName(): FirstName
     {
         return $this->firstName;
     }
 
-    /**
-     * @return LastName
-     */
     public function getLastName(): LastName
     {
         return $this->lastName;
     }
 
-    /**
-     * @return EmailAddress
-     */
     public function getEmailAddress(): EmailAddress
     {
         return $this->emailAddress;
     }
 
-    /**
-     * @return DateTimeImmutable
-     */
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    /**
-     * @return DateTimeImmutable
-     */
     public function getUpdatedAt(): DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @return DateTimeImmutable|null
-     */
     public function getEmailVerifiedAt(): ?DateTimeImmutable
     {
         return $this->emailVerifiedAt;
     }
 
     /**
-     * @param  MemberEloquentModel  $member
-     * @return MemberReadModel
      * @throws AssertionFailedException
      * @throws \Exception
      */
@@ -114,10 +83,8 @@ final class MemberReadModel
     }
 
     /**
-     * @param  array  $member
-     * @return self
      * @throws AssertionFailedException
-     * @throws \Exception
+     * @throws Exception
      */
     public static function createFromArray(array $member): self
     {

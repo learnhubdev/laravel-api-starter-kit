@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Members;
 
-use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberRepository;
+use App\Domain\Members\MemberWasNotFound;
 use Assert\AssertionFailedException;
 use Godruoyi\Snowflake\Snowflake;
 
@@ -26,9 +26,6 @@ final class ArrayMemberRepository implements MemberRepository
     }
 
     /**
-     * @param  string  $emailAddress
-     * @return MemberReadModel
-     *
      * @throws MemberWasNotFound
      * @throws AssertionFailedException
      */
@@ -50,10 +47,6 @@ final class ArrayMemberRepository implements MemberRepository
         throw new MemberWasNotFound();
     }
 
-    /**
-     * @param  string  $emailAddress
-     * @return bool
-     */
     public function existsByEmailAddress(string $emailAddress): bool
     {
         foreach ($this->members as $member) {
@@ -65,10 +58,6 @@ final class ArrayMemberRepository implements MemberRepository
         return false;
     }
 
-    /**
-     * @param  Member  $member
-     * @return void
-     */
     public function save(Member $member): void
     {
         $this->members[] = $member->mapForPersistence();
