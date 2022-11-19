@@ -9,6 +9,7 @@ use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberRepository;
 use App\Infrastructure\Members\Member as MemberEloquentModel;
+use Assert\AssertionFailedException;
 use Godruoyi\Snowflake\Snowflake;
 
 final class EloquentMemberRepository implements MemberRepository
@@ -20,6 +21,9 @@ final class EloquentMemberRepository implements MemberRepository
     {
     }
 
+    /**
+     * @return string
+     */
     public function generateIdentity(): string
     {
         return (new Snowflake())->id();
@@ -30,7 +34,7 @@ final class EloquentMemberRepository implements MemberRepository
      * @param  array  $columns
      * @return MemberReadModel
      *
-     * @throws MemberWasNotFound
+     * @throws MemberWasNotFound|AssertionFailedException
      */
     public function findByEmailAddress(string $emailAddress, array $columns = self::DEFAULT_COLUMNS): MemberReadModel
     {

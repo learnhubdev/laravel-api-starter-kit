@@ -6,6 +6,7 @@ namespace App\Domain\Members;
 
 use App\Infrastructure\Members\Member as MemberEloquentModel;
 use Assert\AssertionFailedException;
+use Carbon\CarbonImmutable;
 use DateTimeImmutable;
 
 final class MemberReadModel
@@ -94,14 +95,21 @@ final class MemberReadModel
      */
     public static function createFromEloquentModel(MemberEloquentModel $member): MemberReadModel
     {
+        /** @var CarbonImmutable $createdAt */
+        $createdAt = $member->created_at;
+        /** @var CarbonImmutable $updatedAt */
+        $updatedAt = $member->updated_at;
+        /** @var CarbonImmutable|null $emailVerifiedAt */
+        $emailVerifiedAt = $member->email_verified_at;
+
         return new self(
             id: Id::createFromString(value: $member->id),
             firstName: FirstName::createFromString(value: $member->first_name),
             lastName: LastName::createFromString(value: $member->last_name),
             emailAddress: EmailAddress::createFromString(value: $member->email),
-            createdAt: new DateTimeImmutable(datetime: $member->created_at),
-            updatedAt: new DateTimeImmutable(datetime: $member->updated_at),
-            emailVerifiedAt: $member->email_verified_at ? new DateTimeImmutable($member->email_verified_at) : null
+            createdAt: $createdAt,
+            updatedAt: $updatedAt,
+            emailVerifiedAt: $emailVerifiedAt ?? null
         );
     }
 
