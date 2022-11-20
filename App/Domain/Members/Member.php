@@ -42,7 +42,14 @@ final class Member
             password: $password
         );
 
-        $member->raiseEvent(new MemberSignedUp(member: $member));
+        $member->raiseEvent(
+            new MemberSignedUp(
+                id: $id,
+                firstName: $firstName,
+                lastName: $lastName,
+                emailAddress: $emailAddress
+            )
+        );
 
         return $member;
     }
