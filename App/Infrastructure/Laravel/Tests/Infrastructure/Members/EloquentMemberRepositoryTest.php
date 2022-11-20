@@ -59,7 +59,7 @@ final class EloquentMemberRepositoryTest extends TestCase
 
         $this->assertNotNull(actual: $memberReadModel);
         $this->assertInstanceOf(expected: MemberReadModel::class, actual: $memberReadModel);
-        $this->assertEquals(expected: $member->email, actual: $memberReadModel->getEmailAddress()->getValue());
+        $this->assertEquals(expected: $member->email, actual: $memberReadModel->emailAddress->getValue());
     }
 
     /**

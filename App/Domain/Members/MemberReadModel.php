@@ -13,49 +13,14 @@ use Exception;
 final class MemberReadModel
 {
     public function __construct(
-        private readonly Id $id,
-        private readonly FirstName $firstName,
-        private readonly LastName $lastName,
-        private readonly EmailAddress $emailAddress,
-        private readonly DateTimeImmutable $createdAt,
-        private readonly DateTimeImmutable $updatedAt,
-        private readonly ?DateTimeImmutable $emailVerifiedAt
+        public readonly Id $id,
+        public readonly FirstName $firstName,
+        public readonly LastName $lastName,
+        public readonly EmailAddress $emailAddress,
+        public readonly DateTimeImmutable $createdAt,
+        public readonly DateTimeImmutable $updatedAt,
+        public readonly ?DateTimeImmutable $emailVerifiedAt
     ) {
-    }
-
-    public function getId(): Id
-    {
-        return $this->id;
-    }
-
-    public function getFirstName(): FirstName
-    {
-        return $this->firstName;
-    }
-
-    public function getLastName(): LastName
-    {
-        return $this->lastName;
-    }
-
-    public function getEmailAddress(): EmailAddress
-    {
-        return $this->emailAddress;
-    }
-
-    public function getCreatedAt(): DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    public function getEmailVerifiedAt(): ?DateTimeImmutable
-    {
-        return $this->emailVerifiedAt;
     }
 
     /**

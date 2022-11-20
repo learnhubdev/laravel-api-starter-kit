@@ -32,7 +32,7 @@ final class SignUpMemberCommandHandler
      */
     public function handle(SignUpMember $signUpMember): void
     {
-        $emailAddress = EmailAddress::createFromString(value: $signUpMember->getEmailAddress());
+        $emailAddress = EmailAddress::createFromString(value: $signUpMember->emailAddress);
 
         $emailAddressExists = $this->memberRepository->existsByEmailAddress(emailAddress: $emailAddress->getValue());
 
@@ -42,12 +42,12 @@ final class SignUpMemberCommandHandler
 
         $member = Member::signUp(
             id: Id::createFromString(value: $this->memberRepository->generateIdentity()),
-            firstName: FirstName::createFromString(value: $signUpMember->getFirstName()),
-            lastName: LastName::createFromString(value: $signUpMember->getLastName()),
+            firstName: FirstName::createFromString(value: $signUpMember->firstName),
+            lastName: LastName::createFromString(value: $signUpMember->lastName),
             emailAddress: $emailAddress,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
-            password: Password::createFromString(value: $this->hasher->make(value: $signUpMember->getPassword()))
+            password: Password::createFromString(value: $this->hasher->make(value: $signUpMember->password))
         );
 
         $this->memberRepository->save(member: $member);
