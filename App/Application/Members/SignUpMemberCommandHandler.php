@@ -13,6 +13,7 @@ use App\Domain\Members\LastName;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberRepository;
 use App\Domain\Members\Password;
+use App\Domain\Members\StatusName;
 use Assert\AssertionFailedException;
 use Illuminate\Contracts\Hashing\Hasher;
 use Symfony\Component\Clock\ClockInterface;
@@ -45,6 +46,7 @@ final class SignUpMemberCommandHandler
             firstName: FirstName::createFromString(value: $signUpMember->firstName),
             lastName: LastName::createFromString(value: $signUpMember->lastName),
             emailAddress: $emailAddress,
+            status: StatusName::PENDING,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
             password: Password::createFromString(value: $this->hasher->make(value: $signUpMember->password))

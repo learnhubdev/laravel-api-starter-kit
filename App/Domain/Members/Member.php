@@ -17,6 +17,7 @@ final class Member
         private readonly FirstName $firstName,
         private readonly LastName $lastName,
         private readonly EmailAddress $emailAddress,
+        private readonly StatusName $status,
         private readonly DateTimeImmutable $createdAt,
         private readonly DateTimeImmutable $updatedAt,
         private readonly ?Password $password
@@ -28,6 +29,7 @@ final class Member
         FirstName $firstName,
         LastName $lastName,
         EmailAddress $emailAddress,
+        StatusName $status,
         DateTimeImmutable $createdAt,
         DateTimeImmutable $updatedAt,
         ?Password $password
@@ -37,6 +39,7 @@ final class Member
             firstName: $firstName,
             lastName: $lastName,
             emailAddress: $emailAddress,
+            status: $status,
             createdAt: $createdAt,
             updatedAt: $updatedAt,
             password: $password
@@ -47,7 +50,8 @@ final class Member
                 id: $id,
                 firstName: $firstName,
                 lastName: $lastName,
-                emailAddress: $emailAddress
+                emailAddress: $emailAddress,
+                status: $status
             )
         );
 
@@ -71,6 +75,7 @@ final class Member
             'first_name' => $this->firstName->getValue(),
             'last_name' => $this->lastName->getValue(),
             'email' => $this->emailAddress->getValue(),
+            'status' => $this->status->value,
             'password' => $this->password->getValue(),
             'created_at' => $this->createdAt->format(format: 'Y-m-d H:i:s'),
             'updated_at' => $this->updatedAt->format(format: 'Y-m-d H:i:s'),

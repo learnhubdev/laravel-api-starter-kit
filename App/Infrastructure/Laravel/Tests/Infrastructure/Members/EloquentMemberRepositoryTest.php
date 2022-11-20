@@ -12,6 +12,7 @@ use App\Domain\Members\Member;
 use App\Domain\Members\MemberReadModel;
 use App\Domain\Members\MemberWasNotFound;
 use App\Domain\Members\Password;
+use App\Domain\Members\StatusName;
 use App\Infrastructure\Members\EloquentMemberRepository;
 use App\Infrastructure\Members\Member as EloquentMember;
 use Assert\AssertionFailedException;
@@ -87,6 +88,7 @@ final class EloquentMemberRepositoryTest extends TestCase
             firstName: FirstName::createFromString(value: $eloquentMember->first_name),
             lastName: LastName::createFromString(value: $eloquentMember->last_name),
             emailAddress: EmailAddress::createFromString(value: $eloquentMember->email),
+            status: StatusName::PENDING,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
             password: Password::createFromString(value: $this->hasher->make(value: $eloquentMember->password))

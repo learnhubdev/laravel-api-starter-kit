@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Members;
 
+use App\Domain\Members\StatusName;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -25,6 +26,7 @@ class MemberFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->freeEmail(),
             'password' => $this->faker->password(minLength: 8),
+            'status' => StatusName::PENDING->value,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'email_verified_at' => null,

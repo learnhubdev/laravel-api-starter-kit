@@ -17,6 +17,7 @@ final class MemberReadModel
         public readonly FirstName $firstName,
         public readonly LastName $lastName,
         public readonly EmailAddress $emailAddress,
+        public readonly StatusName $status,
         public readonly DateTimeImmutable $createdAt,
         public readonly DateTimeImmutable $updatedAt,
         public readonly ?DateTimeImmutable $emailVerifiedAt
@@ -41,6 +42,7 @@ final class MemberReadModel
             firstName: FirstName::createFromString(value: $member->first_name),
             lastName: LastName::createFromString(value: $member->last_name),
             emailAddress: EmailAddress::createFromString(value: $member->email),
+            status: StatusName::PENDING,
             createdAt: $createdAt,
             updatedAt: $updatedAt,
             emailVerifiedAt: $emailVerifiedAt ?? null
@@ -58,6 +60,7 @@ final class MemberReadModel
             firstName: FirstName::createFromString(value: $member['firstName']),
             lastName: LastName::createFromString(value: $member['lastName']),
             emailAddress: EmailAddress::createFromString(value: $member['email']),
+            status: StatusName::PENDING,
             createdAt: new DateTimeImmutable(datetime: $member['createdAt']),
             updatedAt: new DateTimeImmutable(datetime: $member['updatedAt']),
             emailVerifiedAt: isset($member['emailVerifiedAt']) ? new DateTimeImmutable($member['emailVerifiedAt']) : null

@@ -10,7 +10,8 @@ final class MemberSignedUp
         public readonly Id $id,
         public readonly FirstName $firstName,
         public readonly LastName $lastName,
-        public readonly EmailAddress $emailAddress
+        public readonly EmailAddress $emailAddress,
+        public readonly StatusName $status
     ) {
         //
     }

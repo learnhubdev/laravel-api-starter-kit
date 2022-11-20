@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Authentication;
 
+use App\Domain\Members\StatusName;
 use App\Infrastructure\Laravel\Models\BaseModel;
 use Eloquent;
 use Illuminate\Auth\Authenticatable;
@@ -78,6 +79,7 @@ class User extends BaseModel implements MustVerifyEmail
         'first_name' => 'string',
         'last_name' => 'string',
         'email' => 'string',
+        'status' => StatusName::class,
         'password' => 'string',
         'remember_token' => 'string',
         'created_at' => 'immutable_datetime',

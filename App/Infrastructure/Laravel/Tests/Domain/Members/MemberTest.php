@@ -11,6 +11,7 @@ use App\Domain\Members\LastName;
 use App\Domain\Members\Member;
 use App\Domain\Members\MemberSignedUp;
 use App\Domain\Members\Password;
+use App\Domain\Members\StatusName;
 use App\Infrastructure\Members\ArrayMemberRepository;
 use Assert\AssertionFailedException;
 use Faker\Factory;
@@ -43,6 +44,7 @@ final class MemberTest extends TestCase
             firstName: FirstName::createFromString(value: $faker->firstName()),
             lastName: LastName::createFromString(value: $faker->lastName()),
             emailAddress: EmailAddress::createFromString(value: $faker->unique()->freeEmail()),
+            status: StatusName::PENDING,
             createdAt: $this->clock->now(),
             updatedAt: $this->clock->now(),
             password: Password::createFromString(value: $this->hasher->make(value: $password))

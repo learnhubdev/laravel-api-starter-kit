@@ -38,6 +38,7 @@ final class ArrayMemberRepository implements MemberRepository
                     'firstName' => $member['first_name'],
                     'lastName' => $member['last_name'],
                     'email' => $member['email'],
+                    'status' => $member['status'],
                     'createdAt' => $member['created_at'],
                     'updatedAt' => $member['updated_at'],
                 ]);
