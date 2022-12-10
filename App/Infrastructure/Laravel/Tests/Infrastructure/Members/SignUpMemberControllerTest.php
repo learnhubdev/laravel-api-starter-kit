@@ -4,10 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Infrastructure\Members;
 
+use App\Application\Members\SendMemberActivationEmail;
 use App\Infrastructure\Members\Member;
+use App\Infrastructure\Members\MemberActivationEmail;
+use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Contracts\Queue\Queue;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Testing\Fakes\MailFake;
+use Illuminate\Support\Testing\Fakes\QueueFake;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
@@ -16,19 +22,47 @@ final class SignUpMemberControllerTest extends TestCase
     use LazilyRefreshDatabase;
 
     /**
+     * The Illuminate application instance.
+     */
+    protected $app;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->app = $this->createApplication();
+        $this->app->bind(abstract: Mailer::class, concrete: MailFake::class);
+        $this->app->bind(abstract: Queue::class, concrete: fn() => new QueueFake(app: $this->app));
+    }
+
+    /**
      * @test
      */
     public function a_member_can_sign_up_for_a_new_account(): void
     {
+        /** @var MailFake $fakeMailer */
+        $fakeMailer = $this->app->make(abstract: Mailer::class);
+        $fakeQueue = $this->app->make(abstract: Queue::class);
+
         $member = Member::factory()->make();
 
-        $response = $this->postJson(uri: $this->app->make(abstract: UrlGenerator::class)->route(name: 'api.v1.member-sign-ups', parameters: array_merge($member->toArray(), ['password_confirmation' => $member->password])));
+        $response = $this->postJson(
+            uri: $this->app->make(
+                    abstract: UrlGenerator::class
+                )->route(
+                    name: 'api.v1.member-sign-ups',
+                    parameters: array_merge($member->toArray(), ['password_confirmation' => $member->password])
+                )
+        );
 
         $this->assertDatabaseCount(table: 'users', count: 1);
 
         $this->assertDatabaseHas(table: 'users', data: Arr::except(array: $member->toArray(), keys: ['password', 'password_confirmation']));
 
         $response->assertStatus(status: Response::HTTP_CREATED);
+
+        $fakeMailer->assertSent(mailable: MemberActivationEmail::class);
+        $fakeQueue->assertQueued(mailable: SendMemberActivationEmail::class);
     }
 
     /**
@@ -37,6 +71,8 @@ final class SignUpMemberControllerTest extends TestCase
      */
     public function sign_up_member_validation_errors(string $field, mixed $value, string $errorField = ''): void
     {
+        $fakeMailer = $this->app->make(abstract: MailFake::class);
+
         $member = Member::factory()->make();
 
         $parameters = array_merge($member->toArray(), [$field => $value]);
@@ -47,6 +83,8 @@ final class SignUpMemberControllerTest extends TestCase
 
         $response->assertStatus(status: Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJsonValidationErrors(errors: $errorField ?: $field);
+
+        $fakeMailer->assertNotQueued(mailable: MemberActivationEmail::class);
     }
 
     public function signUpMemberDataProvider(): array

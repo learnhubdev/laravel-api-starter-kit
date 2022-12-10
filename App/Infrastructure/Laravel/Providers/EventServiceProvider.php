@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Laravel\Providers;
 
 use App\Application\Events\EventDispatcher;
+use App\Application\Members\SendMemberActivationEmail;
 use App\Domain\Members\MemberSignedUp;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Laravel\Events\Dispatcher;
 
@@ -18,9 +18,9 @@ final class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        //        MemberSignedUp::class => [
-        //            SendEmailVerificationNotification::class,
-        //        ],
+        MemberSignedUp::class => [
+            SendMemberActivationEmail::class,
+        ],
     ];
 
     /**

@@ -26,7 +26,7 @@ final class MemberReadModel
 
     /**
      * @throws AssertionFailedException
-     * @throws \Exception
+     * @throws Exception
      */
     public static function createFromEloquentModel(MemberEloquentModel $member): MemberReadModel
     {
