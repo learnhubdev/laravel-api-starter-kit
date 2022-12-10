@@ -40,10 +40,6 @@ final class SignUpMemberControllerTest extends TestCase
      */
     public function a_member_can_sign_up_for_a_new_account(): void
     {
-        /** @var MailFake $fakeMailer */
-        $fakeMailer = $this->app->make(abstract: Mailer::class);
-        $fakeQueue = $this->app->make(abstract: Queue::class);
-
         $member = Member::factory()->make();
 
         $response = $this->postJson(
@@ -60,9 +56,6 @@ final class SignUpMemberControllerTest extends TestCase
         $this->assertDatabaseHas(table: 'users', data: Arr::except(array: $member->toArray(), keys: ['password', 'password_confirmation']));
 
         $response->assertStatus(status: Response::HTTP_CREATED);
-
-        $fakeMailer->assertSent(mailable: MemberActivationEmail::class);
-        $fakeQueue->assertQueued(mailable: SendMemberActivationEmail::class);
     }
 
     /**
@@ -71,8 +64,6 @@ final class SignUpMemberControllerTest extends TestCase
      */
     public function sign_up_member_validation_errors(string $field, mixed $value, string $errorField = ''): void
     {
-        $fakeMailer = $this->app->make(abstract: MailFake::class);
-
         $member = Member::factory()->make();
 
         $parameters = array_merge($member->toArray(), [$field => $value]);
@@ -83,8 +74,6 @@ final class SignUpMemberControllerTest extends TestCase
 
         $response->assertStatus(status: Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJsonValidationErrors(errors: $errorField ?: $field);
-
-        $fakeMailer->assertNotQueued(mailable: MemberActivationEmail::class);
     }
 
     public function signUpMemberDataProvider(): array
