@@ -7,12 +7,10 @@ namespace Laravel\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class ModelServiceProvider extends ServiceProvider
+final class ModelServiceProvider extends ServiceProvider
 {
     /**
      * Register any authentication / authorization services.
-     *
-     * @return void
      */
     public function boot(): void
     {

@@ -10,13 +10,11 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up(): void
     {
         Schema::create(table: 'personal_access_tokens', callback: function (Blueprint $table) {
-            $table->id();
+            $table->snowflake()->primary();
             $table->morphs(name: 'tokenable');
             $table->string(column: 'name');
             $table->string(column: 'token', length: 64)->unique();
@@ -30,8 +28,6 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down(): void
     {

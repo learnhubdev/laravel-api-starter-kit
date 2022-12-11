@@ -8,17 +8,11 @@ use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use Illuminate\Foundation\Bootstrap\BootProviders;
-use Illuminate\Foundation\Bootstrap\HandleExceptions;
-use Illuminate\Foundation\Bootstrap\LoadConfiguration;
-use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Http\Middleware\SetCacheHeaders;
-use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -32,19 +26,6 @@ use Laravel\Http\Middleware\VerifyCsrfToken;
 
 class Kernel extends HttpKernel
 {
-    /**
-     * The bootstrap classes for the application.
-     *
-     * @var string[]
-     */
-    protected $bootstrappers = [
-        LoadEnvironmentVariables::class,
-        LoadConfiguration::class,
-        HandleExceptions::class,
-        RegisterProviders::class,
-        BootProviders::class,
-    ];
-
     /**
      * The application's global HTTP middleware stack.
      *
@@ -74,12 +55,10 @@ class Kernel extends HttpKernel
             StartSession::class,
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
-            SubstituteBindings::class,
         ],
 
         'api' => [
             'throttle:api',
-            SubstituteBindings::class,
         ],
     ];
 

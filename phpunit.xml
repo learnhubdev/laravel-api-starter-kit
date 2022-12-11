@@ -7,17 +7,13 @@
 >
     <testsuites>
         <testsuite name="Unit">
-            <directory>App/Infrastructure/Laravel/Tests/Unit</directory>
+            <directory>App/Infrastructure/Laravel/Tests/Domain</directory>
+            <directory>App/Infrastructure/Laravel/Tests/Application</directory>
         </testsuite>
         <testsuite name="Feature">
-            <directory>App/Infrastructure/Laravel/Tests/Feature</directory>
+            <directory>App/Infrastructure/Laravel/Tests/Infrastructure</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">./App</directory>
-        </include>
-    </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
