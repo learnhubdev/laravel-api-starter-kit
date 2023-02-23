@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Laravel\Providers;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Application\Events\EventDispatcher;
+use App\Application\Members\SendMemberActivationEmail;
+use App\Domain\Members\MemberSignedUp;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Laravel\Events\Dispatcher;
 
-class EventServiceProvider extends ServiceProvider
+final class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event to listener mappings for the application.
@@ -16,25 +18,26 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        MemberSignedUp::class => [
+            SendMemberActivationEmail::class,
         ],
     ];
 
     /**
      * Register any events for your application.
-     *
-     * @return void
      */
     public function boot(): void
     {
         //
     }
 
+    public function register(): void
+    {
+        $this->app->singleton(abstract: EventDispatcher::class, concrete: Dispatcher::class);
+    }
+
     /**
      * Determine if events and listeners should be automatically discovered.
-     *
-     * @return bool
      */
     public function shouldDiscoverEvents(): bool
     {

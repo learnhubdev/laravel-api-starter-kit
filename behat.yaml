@@ -1,0 +1,5 @@
+default:
+  suites:
+    application:
+      paths: []
+      contexts: []

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Routing\Middleware\SubstituteBindings;
-
 return [
     /*
      *  Automatic registration of routes will only happen if this setting is `true`
@@ -15,19 +13,20 @@ return [
      * Optionally, you can specify group configuration by using key/values
      */
     'directories' => [
-        app_path('Http/Controllers'),
-        /*
-        app_path('Http/Controllers/Api') => [
-           'prefix' => 'api',
-           'middleware' => 'api',
+        base_path(path: 'App/Infrastructure/Members') => [
+            'middleware' => 'api',
+            'prefix' => 'api/v1',
+            'namespace' => '\App\Infrastructure\Members',
         ],
-        */
+        base_path(path: 'App/Infrastructure/Home') => [
+            'middleware' => 'api',
+            'prefix' => 'api/v1',
+            'namespace' => '\App\Infrastructure\Home',
+        ],
     ],
 
     /**
      * This middleware will be applied to all routes.
      */
-    'middleware' => [
-        SubstituteBindings::class,
-    ],
+    'middleware' => [],
 ];
