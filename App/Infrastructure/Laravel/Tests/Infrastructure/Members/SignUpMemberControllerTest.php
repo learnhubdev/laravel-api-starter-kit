@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Infrastructure\Members;
 
-use App\Application\Members\SendMemberActivationEmail;
 use App\Infrastructure\Members\Member;
-use App\Infrastructure\Members\MemberActivationEmail;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\Queue;
 use Illuminate\Contracts\Routing\UrlGenerator;
@@ -32,7 +30,7 @@ final class SignUpMemberControllerTest extends TestCase
 
         $this->app = $this->createApplication();
         $this->app->bind(abstract: Mailer::class, concrete: MailFake::class);
-        $this->app->bind(abstract: Queue::class, concrete: fn() => new QueueFake(app: $this->app));
+        $this->app->bind(abstract: Queue::class, concrete: fn () => new QueueFake(app: $this->app));
     }
 
     /**
@@ -44,11 +42,11 @@ final class SignUpMemberControllerTest extends TestCase
 
         $response = $this->postJson(
             uri: $this->app->make(
-                    abstract: UrlGenerator::class
-                )->route(
-                    name: 'api.v1.member-sign-ups',
-                    parameters: array_merge($member->toArray(), ['password_confirmation' => $member->password])
-                )
+                abstract: UrlGenerator::class
+            )->route(
+                name: 'api.v1.member-sign-ups',
+                parameters: array_merge($member->toArray(), ['password_confirmation' => $member->password])
+            )
         );
 
         $this->assertDatabaseCount(table: 'users', count: 1);
