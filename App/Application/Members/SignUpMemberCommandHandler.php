@@ -18,7 +18,7 @@ use Assert\AssertionFailedException;
 use Illuminate\Contracts\Hashing\Hasher;
 use Symfony\Component\Clock\ClockInterface;
 
-final class SignUpMemberCommandHandler
+final readonly class SignUpMemberCommandHandler
 {
     public function __construct(
         private readonly MemberRepository $memberRepository,

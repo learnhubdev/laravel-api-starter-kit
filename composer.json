@@ -1,12 +1,12 @@
 {
     "name": "learnhubdev/laravel-api-starter-kit",
     "type": "project",
-    "version": "0.1.1",
+    "version": "0.2.5",
     "description": "A Laravel API Starter Kit for long-term projects inspired by the tactical patterns of Domain-Driven Design",
     "keywords": ["framework", "laravel", "starter kit"],
     "license": "MIT",
     "require": {
-        "php": "^8.1.0",
+        "php": "^8.2.0",
         "ext-pdo": "*",
         "beberlei/assert": "^3.3",
         "doctrine/dbal": "^3.4",
@@ -23,6 +23,7 @@
         "barryvdh/laravel-ide-helper": "^2.12",
         "behat/behat": "^3.11",
         "brianium/paratest": "^6.6",
+        "driftingly/rector-laravel": "*",
         "fakerphp/faker": "^1.9.1",
         "infection/infection": "^0.26.15",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.11",
@@ -34,7 +35,7 @@
         "nunomaduro/larastan": "^2.0",
         "phparkitect/phparkitect": "^0.2.32",
         "phpunit/phpunit": "^9.5.10",
-        "qossmic/deptrac-shim": "^0.24.0",
+        "qossmic/deptrac-shim": "*",
         "rector/rector": "^0.14.6",
         "spatie/laravel-ignition": "^1.0"
     },

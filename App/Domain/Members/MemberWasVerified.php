@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Members;
 
-final class MemberWasVerified
+final readonly class MemberWasVerified
 {
-    public function __construct(public readonly \DateTimeImmutable $date)
+    public function __construct(public \DateTimeImmutable $date)
     {
         //
     }
