@@ -8,6 +8,7 @@ Things to do before releasing the v1 officially:
 - [ ] Review the folder structure to see if it can be improved
 - [ ] Implement authentication for both Sanctum single page app and mobile versions
 - [x] Implement member signups
+- [ ] Implement member activation
 - [ ] Implement forgot password
 - [ ] Implement password confirmation
 - [ ] Implement teams
