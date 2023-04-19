@@ -74,7 +74,7 @@ final class SignUpMemberControllerTest extends TestCase
             ->assertJsonValidationErrors(errors: $errorField ?: $field);
     }
 
-    public function signUpMemberDataProvider(): array
+    public static function signUpMemberDataProvider(): array
     {
         return [
             'The first name field is required' => ['first_name', ''],
