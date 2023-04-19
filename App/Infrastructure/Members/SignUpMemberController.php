@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 use Spatie\RouteAttributes\Attributes\Post;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
-final class SignUpMemberController
+final readonly class SignUpMemberController
 {
     public function __construct(private readonly Dispatcher $commandBusDispatcher)
     {

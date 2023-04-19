@@ -1,42 +1,42 @@
 {
     "name": "learnhubdev/laravel-api-starter-kit",
     "type": "project",
-    "version": "0.1.1",
+    "version": "0.2.5",
     "description": "A Laravel API Starter Kit for long-term projects inspired by the tactical patterns of Domain-Driven Design",
     "keywords": ["framework", "laravel", "starter kit"],
     "license": "MIT",
     "require": {
-        "php": "^8.1.0",
+        "php": "^8.2.0",
         "ext-pdo": "*",
         "beberlei/assert": "^3.3",
-        "doctrine/dbal": "^3.4",
-        "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.19",
-        "laravel/sanctum": "^3.0",
+        "caneara/snowflake": "^2.0",
+        "doctrine/dbal": "^3.6",
+        "guzzlehttp/guzzle": "^7.5",
+        "laravel/framework": "^v10.0.0",
+        "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.7",
-        "mattkingshott/snowflake": "^2.0",
-        "nunomaduro/laravel-pot": "^0.2.0",
-        "spatie/laravel-route-attributes": "^1.15",
+        "spatie/laravel-route-attributes": "^1.18",
         "symfony/clock": "^6.2@beta"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
-        "behat/behat": "^3.11",
-        "brianium/paratest": "^6.6",
+        "behat/behat": "^3.12",
+        "brianium/paratest": "^7.0",
+        "driftingly/rector-laravel": "*",
         "fakerphp/faker": "^1.9.1",
         "infection/infection": "^0.26.15",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.11",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "mortexa/laravel-arkitect": "^0.3.3",
-        "nunomaduro/collision": "^6.1",
+        "nunomaduro/collision": "^7.0",
         "nunomaduro/larastan": "^2.0",
         "phparkitect/phparkitect": "^0.2.32",
-        "phpunit/phpunit": "^9.5.10",
-        "qossmic/deptrac-shim": "^0.24.0",
+        "phpunit/phpunit": "^10.0.0",
+        "qossmic/deptrac-shim": "*",
         "rector/rector": "^0.14.6",
-        "spatie/laravel-ignition": "^1.0"
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -84,6 +84,6 @@
             "infection/extension-installer": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

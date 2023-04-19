@@ -58,18 +58,18 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:api',
+            ThrottleRequests::class.':api',
         ],
     ];
 
     /**
-     * The application's route middleware.
+     * The application's middleware aliases.
      *
-     * These middleware may be assigned to groups or used individually.
+     * Aliases may be used instead of class names to conveniently assign middleware to routes and groups.
      *
      * @var array<string, class-string|string>
      */
-    protected $routeMiddleware = [
+    protected $middlewareAliases = [
         'auth' => Authenticate::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,

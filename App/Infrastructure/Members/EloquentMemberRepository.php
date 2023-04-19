@@ -12,7 +12,7 @@ use App\Infrastructure\Members\Member as MemberEloquentModel;
 use Assert\AssertionFailedException;
 use Godruoyi\Snowflake\Snowflake;
 
-final class EloquentMemberRepository implements MemberRepository
+final readonly class EloquentMemberRepository implements MemberRepository
 {
     public function __construct(private readonly MemberEloquentModel $member)
     {

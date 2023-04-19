@@ -12,9 +12,7 @@ class ModelFactoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Factory::guessFactoryNamesUsing(function (string $modelName) {
-            return $modelName.'Factory';
-        });
+        Factory::guessFactoryNamesUsing(fn(string $modelName) => $modelName.'Factory');
     }
 
     /**

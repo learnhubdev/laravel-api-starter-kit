@@ -10,7 +10,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-final class SendMemberActivationEmail implements ShouldQueue
+final readonly class SendMemberActivationEmail implements ShouldQueue
 {
     /**
      * Create the event listener.

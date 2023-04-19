@@ -10,17 +10,17 @@ use Carbon\CarbonImmutable;
 use DateTimeImmutable;
 use Exception;
 
-final class MemberReadModel
+final readonly class MemberReadModel
 {
     public function __construct(
-        public readonly Id $id,
-        public readonly FirstName $firstName,
-        public readonly LastName $lastName,
-        public readonly EmailAddress $emailAddress,
-        public readonly StatusName $status,
-        public readonly DateTimeImmutable $createdAt,
-        public readonly DateTimeImmutable $updatedAt,
-        public readonly ?DateTimeImmutable $emailVerifiedAt
+        public Id $id,
+        public FirstName $firstName,
+        public LastName $lastName,
+        public EmailAddress $emailAddress,
+        public StatusName $status,
+        public DateTimeImmutable $createdAt,
+        public DateTimeImmutable $updatedAt,
+        public ?DateTimeImmutable $emailVerifiedAt
     ) {
     }
 

@@ -3,6 +3,7 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
 
@@ -61,6 +62,7 @@ return [
             'driver' => 'single',
             'path' => storage_path(path: 'Logs/laravel.log'),
             'level' => env(key: 'LOG_LEVEL', default: 'debug'),
+            'replace_placeholders' => true,
         ],
 
         'daily' => [
@@ -68,6 +70,7 @@ return [
             'path' => storage_path(path: 'Logs/laravel.log'),
             'level' => env(key: 'LOG_LEVEL', default: 'debug'),
             'days' => 14,
+            'replace_placeholders' => true,
         ],
 
         'slack' => [
@@ -76,6 +79,7 @@ return [
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => env(key: 'LOG_LEVEL', default: 'critical'),
+            'replace_placeholders' => true,
         ],
 
         'papertrail' => [
@@ -87,6 +91,7 @@ return [
                 'port' => env(key: 'PAPERTRAIL_PORT'),
                 'connectionString' => 'tls://'.env(key: 'PAPERTRAIL_URL').':'.env(key: 'PAPERTRAIL_PORT'),
             ],
+            'processors' => [PsrLogMessageProcessor::class],
         ],
 
         'stderr' => [
@@ -97,16 +102,20 @@ return [
             'with' => [
                 'stream' => 'php://stderr',
             ],
+            'processors' => [PsrLogMessageProcessor::class],
         ],
 
         'syslog' => [
             'driver' => 'syslog',
             'level' => env(key: 'LOG_LEVEL', default: 'debug'),
+            'facility' => LOG_USER,
+            'replace_placeholders' => true,
         ],
 
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => env(key: 'LOG_LEVEL', default: 'debug'),
+            'replace_placeholders' => true,
         ],
 
         'null' => [
