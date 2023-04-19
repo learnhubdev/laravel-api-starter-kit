@@ -23,3 +23,5 @@ Things to do before releasing the v1 officially:
 - [ ] Set up GitHub Actions to run all of the code quality tools automatically on new pull requests
 - [ ] Update the documentation to add information about the package, what it is, why it's being built, how to use it and what are the rules that need to be followed in order to make the package worth using as a starting point for long-term Laravel apps
 - [ ] Think of new features to add for v2 and beyond
+- [ ] Review the tests and see if they need to be updated or more tests need to be added
+- [ ] Update few of the artisan commands to support the custom structure 
