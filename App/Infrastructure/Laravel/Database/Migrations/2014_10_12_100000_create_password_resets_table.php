@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(table: 'password_resets', callback: function (Blueprint $table) {
+        Schema::create(table: 'password_reset_tokens', callback: function (Blueprint $table) {
             $table->string(column: 'email', length: 200)->index();
             $table->string(column: 'token');
             $table->timestamp(column: 'created_at')->nullable();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(table: 'password_resets');
+        Schema::dropIfExists(table: 'password_reset_tokens');
     }
 };
