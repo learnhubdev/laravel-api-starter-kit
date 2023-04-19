@@ -5,7 +5,7 @@ An opinionated Software-as-a-Service Laravel API Starter Kit for long-term proje
 Things to do before releasing the v1 officially:
 
 - [x] Prepare the initial folder structure
-- [ ] Review the folder structure to see if it can be improved
+- [ ] Review the folder structure to see if it can be improved (potentially split the code to clean architecture and vertical slices architecture in different branches)
 - [ ] Implement authentication for both Sanctum single page app and mobile versions
 - [x] Implement member signups
 - [ ] Implement member activation
