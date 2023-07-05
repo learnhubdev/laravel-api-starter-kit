@@ -18,8 +18,8 @@ final readonly class SendMemberActivationEmail implements ShouldQueue
      * @return void
      */
     public function __construct(
-        private readonly Mailer $mailer,
-        private readonly Repository $configurationRepository
+        private Mailer $mailer,
+        private Repository $configurationRepository
     ) {
     }
 

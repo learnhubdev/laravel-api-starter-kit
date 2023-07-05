@@ -48,6 +48,7 @@ use Snowflake\SnowflakeCast;
  * @method static Builder|User wherePassword($value)
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
+ *
  * @mixin Eloquent
  */
 class User extends BaseModel implements MustVerifyEmail

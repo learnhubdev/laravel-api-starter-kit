@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Laravel\Foundation;
 
-use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as IlluminateApplication;
 
 class Application extends IlluminateApplication

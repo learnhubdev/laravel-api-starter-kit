@@ -24,6 +24,7 @@ use Illuminate\View\ViewServiceProvider;
 use Laravel\Providers\AuthServiceProvider;
 use Laravel\Providers\BusServiceProvider;
 use Laravel\Providers\ClockServiceProvider;
+use Laravel\Providers\EventDispatcherServiceProvider;
 use Laravel\Providers\EventServiceProvider;
 use Laravel\Providers\MemberServiceProvider;
 use Laravel\Providers\ModelFactoryServiceProvider;
@@ -56,7 +57,7 @@ return [
     |
     */
 
-    'env' => env(key:'APP_ENV', default: 'production'),
+    'env' => env(key: 'APP_ENV', default: 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +70,7 @@ return [
     |
     */
 
-    'debug' => (bool) env(key:'APP_DEBUG', default: false),
+    'debug' => (bool) env(key: 'APP_DEBUG', default: false),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,9 +83,9 @@ return [
     |
     */
 
-    'url' => env(key:'APP_URL', default: 'http://localhost'),
+    'url' => env(key: 'APP_URL', default: 'http://localhost'),
 
-    'asset_url' => env(key:'ASSET_URL'),
+    'asset_url' => env(key: 'ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -149,7 +150,7 @@ return [
     |
     */
 
-    'key' => env(key:'APP_KEY'),
+    'key' => env(key: 'APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -215,6 +216,7 @@ return [
          */
         AuthServiceProvider::class,
         //BroadcastServiceProvider::class,
+        EventDispatcherServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
         RouteAttributesServiceProvider::class,

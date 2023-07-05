@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Events;
+namespace App\Application\EventDispatcher;
 
 use Illuminate\Contracts\Events\Dispatcher;
 

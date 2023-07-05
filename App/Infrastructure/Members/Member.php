@@ -36,6 +36,7 @@ use Snowflake\SnowflakeCast;
  * @method static Builder|Member wherePassword($value)
  * @method static Builder|Member whereRememberToken($value)
  * @method static Builder|Member whereUpdatedAt($value)
+ *
  * @mixin Eloquent
  */
 final class Member extends BaseModel

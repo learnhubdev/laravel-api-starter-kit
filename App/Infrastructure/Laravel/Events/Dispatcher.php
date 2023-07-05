@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Laravel\Events;
 
-use App\Application\Events\EventDispatcher;
+use App\Application\EventDispatcher\EventDispatcher;
 use Illuminate\Events\Dispatcher as IlluminateDispatcher;
 
 final class Dispatcher extends IlluminateDispatcher implements EventDispatcher

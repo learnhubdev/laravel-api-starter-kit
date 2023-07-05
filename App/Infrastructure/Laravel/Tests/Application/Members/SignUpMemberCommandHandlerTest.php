@@ -41,7 +41,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
 
         $signUpMemberCommandHandler = new SignUpMemberCommandHandler(
             memberRepository: $this->memberRepository,
-            eventDispatcher:  $this->eventDispatcher,
+            eventDispatcher: $this->eventDispatcher,
             clock: $this->clock,
             hasher: $this->hasher
         );
@@ -52,7 +52,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
             new SignUpMember(
                 firstName: $faker->firstName(),
                 lastName: $faker->lastName(),
-                emailAddress:  $emailAddress,
+                emailAddress: $emailAddress,
                 password: $faker->password()
             )
         );
@@ -77,7 +77,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
 
         $signUpMemberCommandHandler = new SignUpMemberCommandHandler(
             memberRepository: $this->memberRepository,
-            eventDispatcher:  $this->eventDispatcher,
+            eventDispatcher: $this->eventDispatcher,
             clock: $this->clock,
             hasher: $this->hasher
         );
@@ -88,7 +88,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
             new SignUpMember(
                 firstName: $faker->firstName(),
                 lastName: $faker->lastName(),
-                emailAddress:  $emailAddress,
+                emailAddress: $emailAddress,
                 password: $faker->password()
             )
         );
@@ -97,7 +97,7 @@ final class SignUpMemberCommandHandlerTest extends TestCase
             new SignUpMember(
                 firstName: $faker->firstName(),
                 lastName: $faker->lastName(),
-                emailAddress:  $emailAddress,
+                emailAddress: $emailAddress,
                 password: $faker->password()
             )
         );

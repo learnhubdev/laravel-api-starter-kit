@@ -58,6 +58,7 @@ final class SignUpMemberControllerTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider signUpMemberDataProvider
      */
     public function sign_up_member_validation_errors(string $field, mixed $value, string $errorField = ''): void
