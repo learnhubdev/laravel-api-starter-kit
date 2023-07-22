@@ -8,5 +8,5 @@ interface EventDispatcher extends Dispatcher
 {
     public function flushMultiple(array $events): void;
 
-    public function dispatchMultiple(array $events, bool $halt = false): void;
+    public function dispatchMultiple(array $events): void;
 }

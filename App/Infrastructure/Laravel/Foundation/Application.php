@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Laravel\Foundation;
 
 use Illuminate\Foundation\Application as IlluminateApplication;
+use Illuminate\Log\LogServiceProvider;
+use Illuminate\Routing\RoutingServiceProvider;
+use Laravel\Providers\EventDispatcherServiceProvider;
 
 class Application extends IlluminateApplication
 {
@@ -54,5 +57,17 @@ class Application extends IlluminateApplication
     public function configPath($path = ''): string
     {
         return dirname(path: __DIR__).'/Config'.($path != '' ? DIRECTORY_SEPARATOR.$path : '');
+    }
+
+    /**
+     * Register all the base service providers.
+     *
+     * @return void
+     */
+    protected function registerBaseServiceProviders()
+    {
+        $this->register(new EventDispatcherServiceProvider($this));
+        $this->register(new LogServiceProvider($this));
+        $this->register(new RoutingServiceProvider($this));
     }
 }

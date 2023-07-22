@@ -46,7 +46,7 @@ class MemberActivationEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'Members.activation',
+            markdown: 'Infrastructure.Members.activation',
             with: [
                 'fullName' => $this->firstName->getValue().' '.$this->lastName->getValue(),
                 'activationUrl' => $this->configurationRepository->get(key: 'members.activationUrl'),

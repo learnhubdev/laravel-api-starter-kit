@@ -216,8 +216,8 @@ return [
          */
         AuthServiceProvider::class,
         //BroadcastServiceProvider::class,
-        EventDispatcherServiceProvider::class,
         EventServiceProvider::class,
+        EventDispatcherServiceProvider::class,
         RouteServiceProvider::class,
         RouteAttributesServiceProvider::class,
         BusServiceProvider::class,

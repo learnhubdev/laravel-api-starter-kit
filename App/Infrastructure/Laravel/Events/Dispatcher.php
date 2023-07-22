@@ -16,10 +16,10 @@ final class Dispatcher extends IlluminateDispatcher implements EventDispatcher
         }
     }
 
-    public function dispatchMultiple(array $events, bool $halt = false): void
+    public function dispatchMultiple(array $events): void
     {
         foreach ($events as $event) {
-            $this->dispatch(event: $event::class, payload: get_class_vars($event::class), halt: $halt);
+            $this->dispatch(event: $event, payload: get_object_vars($event));
         }
     }
 }

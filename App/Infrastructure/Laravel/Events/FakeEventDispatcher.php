@@ -16,10 +16,10 @@ final class FakeEventDispatcher extends IlluminateEventFake implements EventDisp
         }
     }
 
-    public function dispatchMultiple(array $events, bool $halt = false): void
+    public function dispatchMultiple(array $events): void
     {
         foreach ($events as $event) {
-            $this->dispatch(event: $event::class, payload: get_class_vars($event::class), halt: $halt);
+            $this->dispatch(event: $event::class, payload: get_class_vars($event::class));
         }
     }
 }
