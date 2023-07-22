@@ -13,7 +13,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-final class MemberActivationEmail extends Mailable
+class MemberActivationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -46,7 +46,7 @@ final class MemberActivationEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'Members.activation',
+            markdown: 'Infrastructure.Members.activation',
             with: [
                 'fullName' => $this->firstName->getValue().' '.$this->lastName->getValue(),
                 'activationUrl' => $this->configurationRepository->get(key: 'members.activationUrl'),

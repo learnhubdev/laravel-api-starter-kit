@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Laravel\Events;
 
-use App\Application\Events\EventDispatcher;
+use App\Application\EventDispatcher\EventDispatcher;
 use Illuminate\Support\Testing\Fakes\EventFake as IlluminateEventFake;
 
 final class FakeEventDispatcher extends IlluminateEventFake implements EventDispatcher
@@ -16,10 +16,10 @@ final class FakeEventDispatcher extends IlluminateEventFake implements EventDisp
         }
     }
 
-    public function dispatchMultiple(array $events, bool $halt = false): void
+    public function dispatchMultiple(array $events): void
     {
         foreach ($events as $event) {
-            $this->dispatch(event: $event::class, payload: get_class_vars($event::class), halt: $halt);
+            $this->dispatch(event: $event::class, payload: get_class_vars($event::class));
         }
     }
 }

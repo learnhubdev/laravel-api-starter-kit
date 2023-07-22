@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Members;
 
-use App\Application\Events\EventDispatcher;
+use App\Application\EventDispatcher\EventDispatcher;
 use App\Domain\Members\EmailAddress;
 use App\Domain\Members\EmailAddressIsAlreadyTaken;
 use App\Domain\Members\FirstName;
@@ -21,10 +21,10 @@ use Symfony\Component\Clock\ClockInterface;
 final readonly class SignUpMemberCommandHandler
 {
     public function __construct(
-        private readonly MemberRepository $memberRepository,
-        private readonly EventDispatcher $eventDispatcher,
-        private readonly ClockInterface $clock,
-        private readonly Hasher $hasher
+        private MemberRepository $memberRepository,
+        private EventDispatcher $eventDispatcher,
+        private ClockInterface $clock,
+        private Hasher $hasher
     ) {
     }
 

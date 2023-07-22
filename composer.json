@@ -28,6 +28,7 @@
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.14",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
+        "laravel/telescope": "^4.15",
         "mockery/mockery": "^1.4.4",
         "mortexa/laravel-arkitect": "^0.3.3",
         "nunomaduro/collision": "^7.0",

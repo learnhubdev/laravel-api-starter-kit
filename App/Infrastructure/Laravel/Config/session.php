@@ -126,8 +126,7 @@ return [
     |
     */
 
-    'cookie' => env(key:
-        'SESSION_COOKIE',
+    'cookie' => env(key: 'SESSION_COOKIE',
         default: Str::slug(title: env(key: 'APP_NAME', default: 'laravel'), separator: '_').'_session'
     ),
 
